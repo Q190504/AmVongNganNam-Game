@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796883db0fbc06542838a63277e74e99, type: 3}
+  m_Name: SFX_Violin
+  m_EditorClassIdentifier: 
+  instrumentName: Violin
+  notes:
+  - {fileID: 8300000, guid: f7e374293fda5514983181a0ed7d4fc0, type: 3}
+  - {fileID: 8300000, guid: 71fdfcaac1ca03d49a8a41a27e6c11ed, type: 3}
+  - {fileID: 8300000, guid: 5aa3beaa4dce16d45b0085ea12f7430d, type: 3}

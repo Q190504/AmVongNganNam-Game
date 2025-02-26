@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796883db0fbc06542838a63277e74e99, type: 3}
+  m_Name: SFX_Harp
+  m_EditorClassIdentifier: 
+  instrumentName: Harp
+  notes:
+  - {fileID: 8300000, guid: b4fa7e22141ac7443b6b7c26e0f5a9bd, type: 3}
+  - {fileID: 8300000, guid: 8978cc04d18385a4f8fd6be8d00a0bde, type: 3}
+  - {fileID: 8300000, guid: f1cd97b0a6c02fa4d9934958d61ce5e0, type: 3}
