@@ -16,8 +16,8 @@ public class ConfigSO : ScriptableObject
     public float goodThreshold = 0.3f;
     public float badThreshold = 0.5f;
     [Header("Penalty")]
-    public float badPenalty = 5.0f;
-    public float missPenalty = 10.0f;
+    public int badPenalty = 5;
+    public int missPenalty = 10;
 
     
 }
