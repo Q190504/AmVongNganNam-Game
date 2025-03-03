@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instrumentName: Piano
   notes:
-  - {fileID: 8300000, guid: 58365b876ea1d874b8eb97bba7503c6f, type: 3}
-  - {fileID: 8300000, guid: feeb92af807dba74586b8437ad797115, type: 3}
-  - {fileID: 8300000, guid: 14d05935b8d50b64a9f628c159ca9817, type: 3}
+  - {fileID: 8300000, guid: 686e5348f3120a3469444b674f29c27b, type: 3}
+  - {fileID: 8300000, guid: ecf798de7c953364ab666fe49b6bbe9e, type: 3}
+  - {fileID: 8300000, guid: ba4ad65c0ad58ab48a5d73a7abc586b5, type: 3}
