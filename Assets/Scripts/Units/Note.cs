@@ -2,21 +2,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-
 public class Note : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private int noteIndex;
 
     private float fadeDuration;
     private AudioSource audioSource;
-
     private Coroutine fadeCoroutine;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         fadeDuration = InstrumentManager.Instance.GetFadeDuration();
     }
 
@@ -25,20 +26,22 @@ public class Note : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         AudioClip clip = InstrumentManager.Instance.GetNoteAudio(noteIndex);
         if (clip != null)
         {
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine); // Stop fade if ongoing
+            }
+
             audioSource.volume = 1.0f; // Reset volume before playing
             audioSource.clip = clip;
             audioSource.Play();
         }
-
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (audioSource != null && audioSource.isPlaying)
+        if (audioSource.isPlaying)
         {
-            StartCoroutine(FadeOutAudio());
+            fadeCoroutine = StartCoroutine(FadeOutAudio());
         }
     }
 
