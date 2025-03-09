@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 public class InstrumentManager : MonoBehaviour
 {
     public static InstrumentManager _instance;
 
-    public InstrumentDataSO[] instruments;
+    public List<InstrumentDataSO> instrumentList;
     private InstrumentDataSO currentInstrument;
 
     [SerializeField] private float fadeDuration;
@@ -40,17 +41,17 @@ public class InstrumentManager : MonoBehaviour
 
     public void SelectInstrument(int index)
     {
-        if (index >= 0 && index < instruments.Length)
+        if (index >= 0 && index < instrumentList.Count)
         {
-            currentInstrument = instruments[index];
+            currentInstrument = instrumentList[index];
             currentInstrumentName.text = currentInstrument.name;
         }
     }
 
     public string GetInstrumentName(int index)
     {
-        if (index >= 0 && index < instruments.Length)
-            return instruments[index].instrumentName;
+        if (index >= 0 && index < instrumentList.Count)
+            return instrumentList[index].instrumentName;
         else return "null";
     }
 
