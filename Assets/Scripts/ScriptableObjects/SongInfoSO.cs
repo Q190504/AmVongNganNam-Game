@@ -6,6 +6,7 @@ public class SongInfoSO : ScriptableObject
 {
     public string songName;
     public string artist;
+    public string info;
     public float BPM;
     public AudioClip songClip;
     public TextAsset midiFile;
