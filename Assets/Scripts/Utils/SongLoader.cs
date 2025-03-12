@@ -78,7 +78,7 @@ public class SongLoader : MonoBehaviour
 
         yield return new WaitUntil(() => audioDone && easyMidiDone && hardMidiDone);
 
-        if (songInfo.easyNoteTimings.Count == 0 || songInfo.hardNoteTimings.Count == 0)
+        if (songInfo.easyNoteTimings == null || songInfo.hardNoteTimings == null)
         {
             songInfo.GenerateNoteTimings();
         }

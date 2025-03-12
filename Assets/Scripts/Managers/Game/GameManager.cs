@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
     }    
     private void Start()
     {
-        Load(SongManager.Instance.FindById("67ce82d1681917808a633fce"), config, GameMode.HARD);
+        (SongInfoSO, GameMode) selectedGame = SongManager.Instance.GetCurrentSelectedSong();
+        Load(selectedGame.Item1, config, selectedGame.Item2);
         CalculateTravelDuration();
         AudioManager.Instance.PlayGameSong(songInfo.songClip);
     }

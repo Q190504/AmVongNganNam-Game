@@ -6,6 +6,8 @@ public class SongManager : MonoBehaviour
     public static SongManager Instance;
     public List<SongInfoSO> songInfos = new List<SongInfoSO>();
 
+    private (SongInfoSO, GameManager.GameMode) currentSelectedGame;
+
     private void Awake()
     {
 
@@ -20,6 +22,15 @@ public class SongManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentSelectedGame(SongInfoSO songInfo, GameManager.GameMode mode)
+    {
+        this.currentSelectedGame = (songInfo, mode);
+    }
+
+    public (SongInfoSO, GameManager.GameMode) GetCurrentSelectedSong()
+    {
+        return currentSelectedGame;
+    }
     public void AddSong(SongInfoSO songInfo)
     {
         songInfos.Add(songInfo);
