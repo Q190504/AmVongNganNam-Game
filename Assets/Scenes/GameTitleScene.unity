@@ -424,7 +424,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventResponse:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 505136575}
+        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LibraryScene
+          m_BoolArgument: 0
+        m_CallState: 2
   publisher: {fileID: 11400000, guid: 4f7089fc6e1957d45b4917bf85a6f4d0, type: 2}
 --- !u!114 &505136577
 MonoBehaviour:
