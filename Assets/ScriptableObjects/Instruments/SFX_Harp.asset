@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SFX_Harp
   m_EditorClassIdentifier: 
   instrumentName: Harp
+  instrumentInfo: "Quao \u0111\xE0n Harp n\xE8 m\u1ECDi ng\u01B0\u1EDDi \u01A1i"
+  instrumentImage: {fileID: -8211477484670538105, guid: 6a588f3f3916a684d89e34911fd25029, type: 3}
   notes:
   - {fileID: 8300000, guid: b4fa7e22141ac7443b6b7c26e0f5a9bd, type: 3}
   - {fileID: 8300000, guid: 8978cc04d18385a4f8fd6be8d00a0bde, type: 3}

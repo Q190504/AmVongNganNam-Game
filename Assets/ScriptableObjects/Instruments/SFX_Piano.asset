@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SFX_Piano
   m_EditorClassIdentifier: 
   instrumentName: Piano
+  instrumentInfo: "Quao \u0111\xE0n Piano n\xE8 m\u1ECDi ng\u01B0\u1EDDi \u01A1i"
+  instrumentImage: {fileID: -7895058522316621897, guid: 595a54a392038764998847acb22c8753, type: 3}
   notes:
   - {fileID: 8300000, guid: 686e5348f3120a3469444b674f29c27b, type: 3}
   - {fileID: 8300000, guid: ecf798de7c953364ab666fe49b6bbe9e, type: 3}
