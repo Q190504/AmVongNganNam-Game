@@ -7,8 +7,22 @@ using System.Net;
 
 public class SongLoader : MonoBehaviour
 {
+    public static SongLoader Instance { get; private set; }
     private string apiUrl = "https://avnn-server.onrender.com/api/songs";
-    public string savePath = "Assets/ScriptableObjects/Songs/"; //Path to save SOs
+    public string savePath = "Assets/ScriptableObjects/Songs/"; // Path to save SOs
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
     void Start()
