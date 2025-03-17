@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LoginManager : MonoBehaviour
 {
-    public bool isloginSuccess;
+    public bool isLoginSuccess;
 
     [Header("Login Info")]
     public TMP_InputField userNameInput;
@@ -16,7 +16,7 @@ public class LoginManager : MonoBehaviour
     void Start()
     {
         //TO DO: Check & set isloginSuccess
-        updateUISO.RaiseEvent(isloginSuccess);
+        updateUISO.RaiseEvent(isLoginSuccess);
     }
 
     // Update is called once per frame
@@ -28,10 +28,10 @@ public class LoginManager : MonoBehaviour
     public void CheckValidLoginInfo()
     {
         //TO DO: check info
-        updateUISO.RaiseEvent(isloginSuccess);
+        updateUISO.RaiseEvent(isLoginSuccess);
 
         //TO DO: check what error
-        if (!isloginSuccess)
+        if (!isLoginSuccess)
             updateErrorTextSO.RaiseEvent("Error");
     }
 }
