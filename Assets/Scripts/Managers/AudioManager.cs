@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Setting")]
 
+    [Header("Audio Setting Panel")]
+    [SerializeField] private GameObject audioSettingsPanel;
+
     public static AudioManager Instance
     {
         get
