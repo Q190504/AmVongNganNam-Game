@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544dfb19aa8402a418ed2d6d413e867f, type: 3}
+  m_Name: "G\u1EB7p_nhau_gi\u1EEFa_r\u1EEBng_m\u01A1"
+  m_EditorClassIdentifier: 
+  id: 67ce82d1681917808a633fce
+  songName: "G\u1EB7p nhau gi\u1EEFa r\u1EEBng m\u01A1"
+  composer: "B\u1EA3o Chung"
+  genre: "D\xE2n ca T\xE2y B\u1EAFc"
+  BPM: 140
+  info: "Nh\u1EA1c s\u0129 B\u1EA3o Chung trong b\xE0i h\xE1t \u201CG\u1EB7p nhau
+    gi\u1EEFa r\u1EEBng m\u01A1\u201D t\xECm hi\u1EC3u phong t\u1EE5c ch\u1EE3: \u201CCon
+    chim g\xEC m\xE0 h\xF3t vui/ Vang c\u1EA3 c\xE1nh r\u1EEBng/ Vui ch\xE2n, vui
+    ch\xE2n, ta c\xF9ng xu\u1ED1ng ch\u1EE3/ B\u01B0\u1EDBm tr\u1EAFng bay quanh
+    b\xEAn nh\u1EEFng r\u1EEBng m\u01A1\u201D. L\u1EDDi h\xE1t \u0111\u1EB9p, trong
+    s\xE1ng, t\u01B0\u01A1i vui di\u1EC5n t\u1EA3 kh\xF4ng ch\u1EC9 l\xE0 con ng\u01B0\u1EDDi
+    xu\u1ED1ng ch\u1EE3 m\xE0 c\xF2n l\xE0 nh\u1EEFng t\xE2m tr\u1EA1ng \u0111\u1EAFm
+    say, n\u1ED3ng n\xE0n."
+  songClipUrl: "/uploads/1741602959707-G\u1EB7p nhau gi\u1EEFa r\u1EEBng m\u01A1_audio.mp3"
+  easyMidiUrl: "/uploads/1741602959719-G\u1EB7p nhau gi\u1EEFa r\u1EEBng m\u01A1_easyMidi.bytes"
+  hardMidiUrl: "/uploads/1741602959721-G\u1EB7p nhau gi\u1EEFa r\u1EEBng m\u01A1_hardMidi.bytes"
+  songClip: {fileID: 0}
+  easyMidi: {fileID: 0}
+  hardMidi: {fileID: 0}
+  easyNoteTimings: []
+  hardNoteTimings: []
