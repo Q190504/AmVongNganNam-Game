@@ -78,4 +78,9 @@ public class NotePool : MonoBehaviour
         }
         active.CheckHit();
     }
+
+    public void Restart()
+    {
+        
+    }
 }

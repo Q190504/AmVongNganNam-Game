@@ -65,4 +65,9 @@ public class ScoreManager : MonoBehaviour
 
     public int GetScore() => score;
     public int GetCombo() => combo;
+
+    public void Restart()
+    {
+        
+    }
 }

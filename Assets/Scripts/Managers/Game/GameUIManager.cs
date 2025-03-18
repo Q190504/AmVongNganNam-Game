@@ -4,9 +4,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("In Game Stats")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private Slider healthBar; // Health Bar Slider
+
+    [Header("Pause Panel")]
+    [SerializeField] private GameObject pausePanel;
+
+    private void Start()
+    {
+        //pausePanel.SetActive(false);
+    }
 
     public void UpdateScoreUI(int newScore)
     {
@@ -25,11 +34,16 @@ public class UIManager : MonoBehaviour
         if (healthBar != null)
         {
             SetHealthBar(newHealth);
-        }   
+        }
     }
 
     public void SetHealthBar(float health)
     {
         healthBar.value = health;
+    }
+
+    public void TogglePausePanel()
+    {
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 }

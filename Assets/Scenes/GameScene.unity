@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 354604991}
   - component: {fileID: 354604993}
   - component: {fileID: 354604994}
+  - component: {fileID: 354604995}
   m_Layer: 0
   m_Name: NotePool
   m_TagString: Untagged
@@ -687,6 +688,22 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 9ae29485e9d06154dbd2fc8a5f54b532, type: 2}
+--- !u!114 &354604995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354604990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d67c870696e604e92e17f2f06b7f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  publisher: {fileID: 11400000, guid: 1cd83b4297300574ca01de53e22007ff, type: 2}
 --- !u!1 &364712301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,6 +1484,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fa5a350f-791d-46bb-ac21-245d1a84f979
     m_ActionName: 'Player/Tap[/Device Simulator Touchscreen/primaryTouch/tap,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dea2c48d-e2bb-484b-9569-998ad67a0034
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1485,6 +1506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteTapPublisher: {fileID: 11400000, guid: d2ac1b2a0638c7244a1c185e146279d6, type: 2}
+  pauseGameSO: {fileID: 11400000, guid: b67722e171d58e34ea3f9f0ce0fe061f, type: 2}
 --- !u!1 &762201346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1609,7 @@ GameObject:
   - component: {fileID: 787981789}
   - component: {fileID: 787981788}
   - component: {fileID: 787981787}
+  - component: {fileID: 787981790}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -1657,7 +1680,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 787981788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 787981790}
+        m_TargetAssemblyTypeName: ContinueButton, Assembly-CSharp
+        m_MethodName: ContinueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &787981788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,6 +1731,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787981785}
   m_CullTransparentMesh: 1
+--- !u!114 &787981790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787981785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56569f1116c6d74fab7098656186685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueGameSO: {fileID: 11400000, guid: 1cd83b4297300574ca01de53e22007ff, type: 2}
 --- !u!1 &877873066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1860,7 @@ GameObject:
   - component: {fileID: 911680617}
   - component: {fileID: 911680616}
   - component: {fileID: 911680615}
+  - component: {fileID: 911680618}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -1882,7 +1931,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911680616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 911680618}
+        m_TargetAssemblyTypeName: RestartGameButton, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &911680616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1982,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911680613}
   m_CullTransparentMesh: 1
+--- !u!114 &911680618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911680613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d0ec797076e8049815611d16a75f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartGameSO: {fileID: 11400000, guid: 4c4a17fbff9b4364b9ff02854f10b309, type: 2}
 --- !u!1 &965867021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,6 +2570,7 @@ GameObject:
   - component: {fileID: 1417069926}
   - component: {fileID: 1417069925}
   - component: {fileID: 1417069924}
+  - component: {fileID: 1417069927}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -2566,7 +2641,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1417069925}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1417069927}
+        m_TargetAssemblyTypeName: ReturnToSongSelectionSceneButton, Assembly-CSharp
+        m_MethodName: ReturnToSongSelectionScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1417069925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,6 +2692,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417069922}
   m_CullTransparentMesh: 1
+--- !u!114 &1417069927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417069922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c0b393a8b952d449f4f5fb139d8de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnToSongSelectionSceneSO: {fileID: 11400000, guid: a1a973b3eb58fd04f9e959d73a141df8, type: 2}
 --- !u!1 &1509229616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,8 +2793,9 @@ GameObject:
   - component: {fileID: 1512271278}
   - component: {fileID: 1512271277}
   - component: {fileID: 1512271279}
+  - component: {fileID: 1512271280}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: GameUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2730,6 +2831,7 @@ MonoBehaviour:
   scoreText: {fileID: 79967734}
   comboText: {fileID: 965867023}
   healthBar: {fileID: 762201348}
+  pausePanel: {fileID: 1569708753}
 --- !u!114 &1512271277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2814,6 +2916,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 732a65d10ce9b92418758ae54a8dd00b, type: 2}
+--- !u!114 &1512271280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512271274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d67c870696e604e92e17f2f06b7f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1512271276}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: TogglePausePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 85e1cb2b8c4523a4896f3bb733ac9d50, type: 2}
 --- !u!1 &1569708753
 GameObject:
   m_ObjectHideFlags: 0
