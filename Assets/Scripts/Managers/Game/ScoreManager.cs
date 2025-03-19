@@ -65,4 +65,17 @@ public class ScoreManager : MonoBehaviour
 
     public int GetScore() => score;
     public int GetCombo() => combo;
+
+    private void ClearScore()
+    {
+        score = 0;
+        scoreEventPublisher.RaiseEvent(score);
+    }
+
+
+    public void RestartGame()
+    {
+        ClearScore();
+        ClearCombo();
+    }
 }

@@ -11,8 +11,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource gameSongSource;
     [SerializeField] private AudioSource sfxSource;
 
-    [Header("Audio Clips")]
-
     [Header("BGMs")]
     [SerializeField] AudioClip bgm;
 
@@ -23,7 +21,6 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Settings Panel")]
     private AudioSettingsPanel audioSettingsPanel;
     private CanvasGroup audioSettingsPanelCanvasGroup;
-
 
     public static AudioManager Instance
     {
@@ -134,5 +131,25 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSettingsPanelCanvasGroup.alpha = alpha;
+    }
+
+    public void ExitGameMode()
+    {
+        StopGameSong();
+        PlayBGM(bgm);
+    }
+
+    public void ToggleGameSong()
+    {
+        if (PauseManager.IsPause)
+            PauseGameSong();
+        else
+            ContinueGameSong();
+    }
+
+    public void RestartGame()
+    {
+        StopGameSong();
+        PlayGameSong(gameSongSource.clip);
     }
 }

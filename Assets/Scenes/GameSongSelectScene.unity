@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1950258373}
   m_HandleRect: {fileID: 1950258372}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2730,6 +2730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1617605251}
   - component: {fileID: 1617605250}
+  - component: {fileID: 1617605252}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2774,6 +2775,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1617605252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617605249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b039cce586f3d6a4794841f01111eb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1617605250}
+        m_TargetAssemblyTypeName: SongSelectUIManager, Assembly-CSharp
+        m_MethodName: EnterGameModeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: c5d61d8c7f0b7e74387677d511209659, type: 2}
 --- !u!1 &1871930978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3516,8 +3545,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1536565200}
   m_HandleRect: {fileID: 1536565199}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.85317343
+  m_Value: 0.0000005863132
+  m_Size: 0.8531736
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3708,6 +3737,7 @@ GameObject:
   - component: {fileID: 1995985305}
   - component: {fileID: 1995985304}
   - component: {fileID: 1995985303}
+  - component: {fileID: 1995985306}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3778,7 +3808,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1995985304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1617605250}
+        m_TargetAssemblyTypeName: SongSelectUIManager, Assembly-CSharp
+        m_MethodName: EnterGameModeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1995985304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,6 +3859,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995985301}
   m_CullTransparentMesh: 1
+--- !u!114 &1995985306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995985301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96857f8afabebbd4381703c014c6a9d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchToGameModeSceneSO: {fileID: 11400000, guid: c5d61d8c7f0b7e74387677d511209659, type: 2}
 --- !u!1 &2000221576
 GameObject:
   m_ObjectHideFlags: 0

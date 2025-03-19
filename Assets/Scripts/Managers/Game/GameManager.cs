@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
             nextNoteIndex++;
         }
     }
+
+    public void RestartGame()
+    {
+        nextNoteIndex = 0;
+    }
 }

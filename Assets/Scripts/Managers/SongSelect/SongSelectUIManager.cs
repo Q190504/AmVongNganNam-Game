@@ -47,7 +47,7 @@ public class SongSelectUIManager : MonoBehaviour
         }
         easyModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.NORMAL));
         hardModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.HARD));
-        gameStartButton.onClick.AddListener(() => StartCoroutine(InitializeGame()));
+
         SelectSong(0);
     }
 
@@ -68,8 +68,15 @@ public class SongSelectUIManager : MonoBehaviour
         }
     }
 
+    public void EnterGameModeScene()
+    {
+        StartCoroutine(InitializeGame());
+    }
+
     private IEnumerator InitializeGame()
     {
+        AudioManager.Instance.StopBGM();
+
         loadingPanel.SetActive(true);
 
         if (currentSong.songClip == null || currentSong.hardMidi == null || currentSong.easyMidi == null)

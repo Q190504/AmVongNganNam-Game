@@ -25,7 +25,7 @@ public class HealthManager : MonoBehaviour
         ResetHealth();
     }
 
-    private void ResetHealth()
+    public void ResetHealth()
     {
         health = maxHealth;
         healthChangePublisher.RaiseEvent((float)health / maxHealth);
