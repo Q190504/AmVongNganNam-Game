@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using TheHeroesJourney;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        //pausePanel.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     public void UpdateScoreUI(int newScore)
@@ -44,6 +45,6 @@ public class UIManager : MonoBehaviour
 
     public void TogglePausePanel()
     {
-        pausePanel.SetActive(!pausePanel.activeSelf);
+        pausePanel.SetActive(PauseManager.IsPause);
     }
 }

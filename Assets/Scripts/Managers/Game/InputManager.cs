@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using TheHeroesJourney;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField] VoidPublisherSO noteTapPublisher;
-    [SerializeField] VoidPublisherSO pauseGameSO;
+    [SerializeField] VoidPublisherSO togglePauseGameSO;
     public void Tap(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -19,7 +20,8 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            pauseGameSO.RaiseEvent();
+            PauseManager.Instance.TogglePause();
+            togglePauseGameSO.RaiseEvent();
         }
     }
 }

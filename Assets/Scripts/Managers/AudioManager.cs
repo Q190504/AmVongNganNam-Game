@@ -1,3 +1,4 @@
+using TheHeroesJourney;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -134,5 +135,19 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSettingsPanelCanvasGroup.alpha = alpha;
+    }
+
+    public void ExitGameMode()
+    {
+        StopGameSong();
+        PlayBGM(bgm);
+    }
+
+    public void ToggleGameSong()
+    {
+        if (PauseManager.IsPause)
+            PauseGameSong();
+        else
+            ContinueGameSong();
     }
 }

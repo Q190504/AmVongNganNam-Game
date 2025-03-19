@@ -47,7 +47,7 @@ public class SongSelectUIManager : MonoBehaviour
         }
         easyModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.NORMAL));
         hardModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.HARD));
-        gameStartButton.onClick.AddListener(() => StartCoroutine(InitializeGame()));
+
         SelectSong(0);
     }
 
@@ -66,6 +66,11 @@ public class SongSelectUIManager : MonoBehaviour
             songNameText.text = currentSong.songName;
             songInfoText.text = currentSong.info;
         }
+    }
+
+    public void EnterGameModeScene()
+    {
+        StartCoroutine(InitializeGame());
     }
 
     private IEnumerator InitializeGame()
