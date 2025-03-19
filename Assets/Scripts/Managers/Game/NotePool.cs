@@ -58,7 +58,7 @@ public class NotePool : MonoBehaviour
     {
         note.SetActive(false);
         notePool.Enqueue(note);
-        if (activeNotes.Peek() == note)
+        if(activeNotes.Count > 0 && activeNotes.Peek() == note)
         {
             activeNotes.Dequeue();
         }
@@ -79,8 +79,12 @@ public class NotePool : MonoBehaviour
         active.CheckHit();
     }
 
-    public void Restart()
+    public void RestartGame()
     {
-        
+        while (activeNotes.Count > 0)
+        {
+            GameObject activeNote = activeNotes.Dequeue();
+            ReturnToPool(activeNote);
+        }
     }
 }

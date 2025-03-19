@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TheHeroesJourney;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,8 +6,11 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] VoidPublisherSO noteTapPublisher;
     [SerializeField] VoidPublisherSO togglePauseGameSO;
+
     public void Tap(InputAction.CallbackContext context)
     {
+        if (PauseManager.IsPause) return;
+
         if(context.performed)
         {
             noteTapPublisher.RaiseEvent();

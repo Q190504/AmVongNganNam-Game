@@ -75,6 +75,8 @@ public class SongSelectUIManager : MonoBehaviour
 
     private IEnumerator InitializeGame()
     {
+        AudioManager.Instance.StopBGM();
+
         loadingPanel.SetActive(true);
 
         if (currentSong.songClip == null || currentSong.hardMidi == null || currentSong.easyMidi == null)

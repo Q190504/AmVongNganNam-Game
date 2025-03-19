@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         (SongInfoSO, GameMode) selectedGame = SongManager.Instance.GetCurrentSelectedSong();
         Load(selectedGame.Item1, config, selectedGame.Item2);
         CalculateTravelDuration();
-        AudioManager.Instance.StopBGM();
         AudioManager.Instance.PlayGameSong(songInfo.songClip);
     }
 
@@ -64,5 +63,10 @@ public class GameManager : MonoBehaviour
             GameEvents.TriggerNoteSpawn(noteSpawnTime, travelDuration);
             nextNoteIndex++;
         }
+    }
+
+    public void RestartGame()
+    {
+        nextNoteIndex = 0;
     }
 }

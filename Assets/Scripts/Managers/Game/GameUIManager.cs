@@ -1,5 +1,4 @@
-﻿using TheHeroesJourney;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +44,6 @@ public class UIManager : MonoBehaviour
 
     public void TogglePausePanel()
     {
-        pausePanel.SetActive(PauseManager.IsPause);
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 }
