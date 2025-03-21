@@ -1506,15 +1506,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 286690717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c77328ea525c3469f91b7b7c44de12, type: 3}
+  m_Script: {fileID: 11500000, guid: df9d4b7602b93454e8ac0553a35383b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instrumentList:
   - {fileID: 11400000, guid: 6b71020bb7f01e043ac66cc50fa1b97a, type: 2}
   - {fileID: 11400000, guid: 713bc5c29d2cd6843894e7ad965a1207, type: 2}
   - {fileID: 11400000, guid: 1febae87bc75d634c9c7263e2fd6fd54, type: 2}
-  fadeDuration: 1
-  currentInstrumentName: {fileID: 1324488180}
+  fadeDuration: 0
+  currentInstrumentName: {fileID: 0}
 --- !u!4 &286690719
 Transform:
   m_ObjectHideFlags: 0
@@ -2619,8 +2619,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338668086}
   m_HandleRect: {fileID: 1338668085}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999998
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6294,7 +6294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579142119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b34d0c806ff92418ebe92912de8c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 893bae9a4c22ee647ac95a2a8e4c867f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   instrumentButtonPrefab: {fileID: 5653433752409434266, guid: df7789bab65dcfd45a19b97227f19a8a, type: 3}
