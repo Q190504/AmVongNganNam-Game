@@ -100,9 +100,9 @@ public class SongLoader : MonoBehaviour
            
 
         // Save the ScriptableObject
-        string path = savePath + song.songName.Replace(" ", "_") + ".asset";
-        UnityEditor.AssetDatabase.CreateAsset(songInfo, path);
-        UnityEditor.AssetDatabase.SaveAssets();
+        //string path = savePath + song.songName.Replace(" ", "_") + ".asset";
+        //UnityEditor.AssetDatabase.CreateAsset(songInfo, path);
+        //UnityEditor.AssetDatabase.SaveAssets();
 
         SongManager.Instance.AddSong(songInfo);
 
