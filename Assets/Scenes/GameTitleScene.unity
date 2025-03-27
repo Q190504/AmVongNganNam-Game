@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a91a0712235ab40ae52cfabf7feb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endGamePublisher: {fileID: 11400000, guid: 3295c5de051128048864fc919444d64c, type: 2}
   bgmSource: {fileID: 1303490366}
   gameSongSource: {fileID: 652459292}
   sfxSource: {fileID: 175721832}
@@ -1646,7 +1647,7 @@ Transform:
   m_GameObject: {fileID: 778830759}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000030517578, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
