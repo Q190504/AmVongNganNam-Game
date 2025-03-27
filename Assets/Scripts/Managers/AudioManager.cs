@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager _instance;
 
+    public VoidPublisherSO endGamePublisher;
+
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource gameSongSource;
@@ -49,6 +51,13 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayBGM(bgm);
+    }
+
+    private void Update()
+    {
+        if(gameSongSource != null && gameSongSource.clip != null)
+            if (gameSongSource.time >= gameSongSource.clip.length)
+                endGamePublisher.RaiseEvent();           
     }
 
     public void PlayBGM(AudioClip clip)

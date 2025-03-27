@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void TogglePausePanel()
     {
-        pausePanel.SetActive(!pausePanel.activeSelf);
+        pausePanel.SetActive(PauseManager.IsPause);
     }
 
     public void ShowEndPanel()
