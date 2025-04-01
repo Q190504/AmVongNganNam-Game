@@ -39,6 +39,7 @@ public class SongLoader : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string json = request.downloadHandler.text;
+                Debug.Log(json);
                 SongData[] songs = JsonHelper.FromJson<SongData>(json);
 
                 foreach (SongData song in songs)
@@ -67,11 +68,13 @@ public class SongLoader : MonoBehaviour
         }));
 
         StartCoroutine(DownloadMidi(songInfo.easyMidiUrl, (TextAsset midi) => {
+            Debug.Log($"Downloaded easy MIDI from " + songInfo.easyMidiUrl);
             songInfo.easyMidi = midi;
             easyMidiDone = true;
         }));
 
         StartCoroutine(DownloadMidi(songInfo.hardMidiUrl, (TextAsset midi) => {
+            Debug.Log($"Downloaded hard MIDI from " + songInfo.hardMidiUrl);
             songInfo.hardMidi = midi;
             hardMidiDone = true;
         }));
@@ -97,8 +100,8 @@ public class SongLoader : MonoBehaviour
         songInfo.songClipUrl = song.audioClip;
         songInfo.easyMidiUrl = song.easyMidi;
         songInfo.hardMidiUrl = song.hardMidi;
-           
 
+        Debug.Log(songInfo.easyMidiUrl);
         // Save the ScriptableObject
         //string path = savePath + song.songName.Replace(" ", "_") + ".asset";
         //UnityEditor.AssetDatabase.CreateAsset(songInfo, path);
@@ -124,7 +127,7 @@ public class SongLoader : MonoBehaviour
 
                 TextAsset midi = new TextAsset(midiData);
                 callback(midi);
-                Debug.Log($"Downloaded MIDI!");
+                
             }
             else
             {

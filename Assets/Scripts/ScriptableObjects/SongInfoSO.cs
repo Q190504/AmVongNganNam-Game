@@ -23,7 +23,7 @@ public class SongInfoSO : ScriptableObject
         if (easyMidi != null)
         {
             easyNoteTimings = MidiParser.ParseMidi(easyMidi, BPM);
-            Debug.Log($"Generated {easyNoteTimings.Count} notes for {songName}");
+            Debug.Log($"Generated {easyNoteTimings.Count} notes for easy mode of {songName}");
         }
         else
         {
@@ -32,7 +32,7 @@ public class SongInfoSO : ScriptableObject
         if (hardMidi != null)
         {
             hardNoteTimings = MidiParser.ParseMidi(hardMidi, BPM);
-            Debug.Log($"Generated {hardNoteTimings.Count} notes for {songName}");
+            Debug.Log($"Generated {hardNoteTimings.Count} notes for hard mode of {songName}");
         }
         else
         {

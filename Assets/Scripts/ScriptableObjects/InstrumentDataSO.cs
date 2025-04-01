@@ -4,6 +4,9 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "NewInstrument", menuName = "Music/Instrument Data")]
 public class InstrumentDataSO : ScriptableObject
 {
+    [Header("Instrument Id")]
+    public string instrumentId;
+
     [Header("Instrument Name")]
     public string instrumentName;
 
