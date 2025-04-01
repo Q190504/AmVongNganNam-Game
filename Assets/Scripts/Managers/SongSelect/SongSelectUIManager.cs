@@ -30,8 +30,11 @@ public class SongSelectUIManager : MonoBehaviour
     void Start()
     {
         loadingPanel.SetActive(false);
-        songList = SongManager.Instance.songInfos;
-        selectedGameMode = GameManager.GameMode.NORMAL;
+        songList = SongManager.Instance.GetSongInfos();
+        (SongInfoSO, GameManager.GameMode) selectedSong = SongManager.Instance.GetCurrentSelectedSong();
+
+        selectedGameMode = selectedSong.Item2;
+
         songButtonList = new List<GameObject>();
 
         for (int i = 0; i < songList.Count; i++)
@@ -48,7 +51,16 @@ public class SongSelectUIManager : MonoBehaviour
         easyModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.NORMAL));
         hardModeButton.onClick.AddListener(() => SetGameMode(GameManager.GameMode.HARD));
 
-        SelectSong(0);
+        if (selectedSong.Item1 == null)
+        {
+            SelectSong(0);
+        }
+        else
+        {
+            currentSong = selectedSong.Item1;
+            songNameText.text = currentSong.songName;
+            songInfoText.text = currentSong.info;
+        }
     }
 
     public string GetSongName(int index)

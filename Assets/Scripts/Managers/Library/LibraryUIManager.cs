@@ -32,7 +32,7 @@ public class LibraryUIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        songList = SongManager.Instance.songInfos;
+        songList = SongManager.Instance.GetSongInfos();
         songButtonList = new List<GameObject>();
         instrumentButtonList = new List<GameObject>();
 

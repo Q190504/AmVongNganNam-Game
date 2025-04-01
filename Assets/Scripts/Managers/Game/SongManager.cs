@@ -4,7 +4,8 @@ using UnityEngine;
 public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
-    public List<SongInfoSO> songInfos = new List<SongInfoSO>();
+    private List<SongInfoSO> songInfos = new List<SongInfoSO>();
+    private GameDataSO gameData;
 
     private (SongInfoSO, GameManager.GameMode) currentSelectedGame;
 
@@ -39,5 +40,20 @@ public class SongManager : MonoBehaviour
     public SongInfoSO FindById(string id)
     {
         return songInfos.Find(song => song.id == id);
+    }
+
+    public List<SongInfoSO> GetSongInfos()
+    {
+        return songInfos;
+    }
+
+    public GameDataSO GetGameData()
+    {
+        return gameData;
+    }
+
+    public void SetGameData(GameDataSO gameData)
+    {
+        this.gameData = gameData;
     }
 }
