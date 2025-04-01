@@ -6,6 +6,7 @@ public class GameTitleUIManager : MonoBehaviour
     [Header("Login Panel")]
     public GameObject loginPanel;
     public TMP_Text errorText;
+    public TMP_Text playerText;
 
     [Header("Play Panel")]
     public GameObject playPanel;
@@ -32,17 +33,12 @@ public class GameTitleUIManager : MonoBehaviour
         playPanel.SetActive(status);
     }
 
-    public void SetErrorText(string error)
-    {
-        errorText.gameObject.SetActive(true);
-        errorText.text = error; 
-    }
-
     public void UpdateUI(bool isLoggedIn)
     {
         if (isLoggedIn)
         {
             errorText.gameObject.SetActive(false);
+            playerText.text = "Welcome back! " + PlayerPrefs.GetString("name");
             SetLoginPanel(false);
             SetPlayPanel(true);
         }
