@@ -10,11 +10,9 @@ public class InstrumentManager : MonoBehaviour
     public List<InstrumentDataSO> instrumentList;
     private InstrumentDataSO currentInstrument;
 
+    public StringPublisherSO selectInstrumenPublisher;
+
     [SerializeField] private float fadeDuration;
-
-
-    [SerializeField] TMP_Text currentInstrumentName;
-
 
     public static InstrumentManager Instance
     {
@@ -45,7 +43,7 @@ public class InstrumentManager : MonoBehaviour
         if (index >= 0 && index < instrumentList.Count)
         {
             currentInstrument = instrumentList[index];
-            currentInstrumentName.text = currentInstrument.name;
+            selectInstrumenPublisher.RaiseEvent(currentInstrument.instrumentName);
         }
     }
 
