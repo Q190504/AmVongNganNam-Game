@@ -1139,6 +1139,57 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: e0fbd4f1a69893140a01766f4b0e071f, type: 2}
+--- !u!1 &546764890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546764892}
+  - component: {fileID: 546764891}
+  m_Layer: 0
+  m_Name: InstrumentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &546764891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546764890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9d4b7602b93454e8ac0553a35383b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instrumentList:
+  - {fileID: 11400000, guid: a3a69a940ce5fcd4c9b93d9effb03e65, type: 2}
+  - {fileID: 11400000, guid: 6b71020bb7f01e043ac66cc50fa1b97a, type: 2}
+  - {fileID: 11400000, guid: 713bc5c29d2cd6843894e7ad965a1207, type: 2}
+  - {fileID: 11400000, guid: 1febae87bc75d634c9c7263e2fd6fd54, type: 2}
+  selectInstrumenPublisher: {fileID: 11400000, guid: 8b2559d97b93114408c50d4dcf075fa4, type: 2}
+  fadeDuration: 1
+--- !u!4 &546764892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546764890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606021147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +4007,7 @@ SceneRoots:
   - {fileID: 1184543298}
   - {fileID: 225780083}
   - {fileID: 1172564077}
+  - {fileID: 546764892}
   - {fileID: 778830761}
   - {fileID: 2046414376}
   - {fileID: 173924175}
