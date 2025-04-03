@@ -1510,11 +1510,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instrumentList:
+  - {fileID: 11400000, guid: a3a69a940ce5fcd4c9b93d9effb03e65, type: 2}
   - {fileID: 11400000, guid: 6b71020bb7f01e043ac66cc50fa1b97a, type: 2}
   - {fileID: 11400000, guid: 713bc5c29d2cd6843894e7ad965a1207, type: 2}
   - {fileID: 11400000, guid: 1febae87bc75d634c9c7263e2fd6fd54, type: 2}
-  fadeDuration: 0
-  currentInstrumentName: {fileID: 0}
+  selectInstrumenPublisher: {fileID: 11400000, guid: 8b2559d97b93114408c50d4dcf075fa4, type: 2}
+  fadeDuration: 1
 --- !u!4 &286690719
 Transform:
   m_ObjectHideFlags: 0
@@ -2619,7 +2620,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338668086}
   m_HandleRect: {fileID: 1338668085}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6278,6 +6279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579142121}
   - component: {fileID: 1579142120}
+  - component: {fileID: 1579142122}
   m_Layer: 0
   m_Name: 'InstrumentUIManager '
   m_TagString: Untagged
@@ -6299,6 +6301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instrumentButtonPrefab: {fileID: 5653433752409434266, guid: df7789bab65dcfd45a19b97227f19a8a, type: 3}
   contentPanel: {fileID: 1979716818}
+  currentInstrumentName: {fileID: 1324488180}
 --- !u!4 &1579142121
 Transform:
   m_ObjectHideFlags: 0
@@ -6314,6 +6317,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579142122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579142119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b039cce586f3d6a4794841f01111eb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1579142120}
+        m_TargetAssemblyTypeName: InstrumentUIManager, Assembly-CSharp
+        m_MethodName: SetCurrentInstrumentName
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 8b2559d97b93114408c50d4dcf075fa4, type: 2}
 --- !u!1 &1594709831
 GameObject:
   m_ObjectHideFlags: 0
