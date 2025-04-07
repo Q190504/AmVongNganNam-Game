@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SongManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class SongManager : MonoBehaviour
     public static SongManager Instance;
     private List<SongInfoSO> songInfos = new List<SongInfoSO>();
     private GameDataSO gameData;
+    [SerializeField]
+    private ConfigSO config;
 
     private (SongInfoSO, GameManager.GameMode) currentSelectedGame;
 
@@ -51,7 +54,19 @@ public class SongManager : MonoBehaviour
     {
         return gameData;
     }
+    public ConfigSO GetConfig()
+    {
+        return config;
+    }
+    public ScoreDataSO GetScoreDataBySongID(string id)
+    {
+        return gameData.highscore.Find(score => score.song_id == id);
+    }
 
+    public bool IsSongIdInData(string id)
+    {
+        return gameData.unlocked_songs.Contains(id);
+    }
     public void SetGameData(GameDataSO gameData)
     {
         this.gameData = gameData;
