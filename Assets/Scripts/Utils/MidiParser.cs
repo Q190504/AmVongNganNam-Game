@@ -3,6 +3,7 @@ using UnityEngine;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.IO;
+using System.Linq;
 
 public static class MidiParser
 {
@@ -30,7 +31,7 @@ public static class MidiParser
                 noteTimings.Add(timeInSeconds);
             }
 
-            noteTimings.Sort();
+            noteTimings = noteTimings.Distinct().OrderBy(t => t).ToList();
         }
         catch (System.Exception ex)
         {
