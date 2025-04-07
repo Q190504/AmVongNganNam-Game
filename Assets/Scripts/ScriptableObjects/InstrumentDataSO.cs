@@ -17,9 +17,9 @@ public class InstrumentDataSO : ScriptableObject
     public Sprite instrumentImage;
 
 
-    [Header("Notes\n0 -> 6: C4 -> B4, 7 -> 13: C3 -> B3, 14 -> 20: C2 -> B2")]
+    [Header("Notes\n0 -> 6: C5 -> B5, 7 -> 13: C4 -> B4, 14 -> 20: C3 -> B3")]
     public AudioClip[] notes;
-    //0->6: C4 -> B4
-    //7->13: C3 -> B3
-    //14->20: C2 -> B2
+    //0->6: C5 -> B5
+    //7->13: C4 -> B4
+    //14->20: C3 -> B3
 }

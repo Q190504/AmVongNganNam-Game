@@ -33,6 +33,7 @@ public class LibraryUIManager : MonoBehaviour
     void Start()
     {
         songList = SongManager.Instance.GetSongInfos();
+        instrumentList = InstrumentManager.Instance.instrumentList;
         songButtonList = new List<GameObject>();
         instrumentButtonList = new List<GameObject>();
 

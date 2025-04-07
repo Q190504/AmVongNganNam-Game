@@ -12,6 +12,9 @@ public class InstrumentUIManager : MonoBehaviour
     private List<GameObject> instrumentButtonList;
     public Transform contentPanel;
 
+    [SerializeField] private TMP_Text currentInstrumentName;
+
+
     private void Start()
     {
         instrumentList = InstrumentManager.Instance.instrumentList;
@@ -28,5 +31,10 @@ public class InstrumentUIManager : MonoBehaviour
 
             instrumentButtonList.Add(instrumentButton);
         }
+    }
+
+    public void SetCurrentInstrumentName(string instrumentName)
+    {
+        currentInstrumentName.text = instrumentName;
     }
 }
