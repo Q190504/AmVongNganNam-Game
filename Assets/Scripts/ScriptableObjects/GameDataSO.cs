@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class GameDataSO : ScriptableObject
 {
-    public string[] unlocked_songs;
-    public string[] unlocked_instruments;
-    public List<ScoreInfo> highscore;
+    public List<string> unlocked_songs;
+    public List<string> unlocked_instruments;
+    public List<ScoreDataSO> highscore;
+    public int song_token;
+    public int instrument_token;
 }

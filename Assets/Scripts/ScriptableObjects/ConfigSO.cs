@@ -18,6 +18,9 @@ public class ConfigSO : ScriptableObject
     [Header("Penalty")]
     public int badPenalty = 5;
     public int missPenalty = 10;
+    [Header("Price")]
+    public int songPrice = 5000;
+    public int instPrice = 5;
 
-    
+
 }

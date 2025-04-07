@@ -18,6 +18,7 @@ public class SongInfoSO : ScriptableObject
     public TextAsset hardMidi;
     public List<float> easyNoteTimings;
     public List<float> hardNoteTimings;
+    public bool isDefault;
     public void GenerateNoteTimings()
     {
         if (easyMidi != null)
