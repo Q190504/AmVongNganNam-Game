@@ -16,8 +16,9 @@ public class AuthManager : MonoBehaviour
     public BoolPublisherSO updateUISO;
     public StringPublisherSO updateErrorTextSO;
 
-    private static string apiUrl = "https://avnn-server.onrender.com/api/auth";
+    //private static string apiUrl = "https://avnn-server.onrender.com/api/auth";
 
+    private static string apiUrl = "http://localhost:5000/api/auth";
     void Start()
     {
         StartCoroutine(StartLoginCheck());

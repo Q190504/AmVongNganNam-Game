@@ -100,6 +100,7 @@ public class SongLoader : MonoBehaviour
         songInfo.songClipUrl = song.audioClip;
         songInfo.easyMidiUrl = song.easyMidi;
         songInfo.hardMidiUrl = song.hardMidi;
+        songInfo.isDefault = song.isDefault;
 
         Debug.Log(songInfo.easyMidiUrl);
         // Save the ScriptableObject
@@ -175,6 +176,7 @@ public class SongData
     public string hardMidi;
     public List<float> easyNoteTimings;
     public List<float> hardNoteTimings;
+    public bool isDefault;
 }
 
 public static class JsonHelper
