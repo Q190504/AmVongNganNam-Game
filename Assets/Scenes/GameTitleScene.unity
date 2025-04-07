@@ -1555,6 +1555,7 @@ GameObject:
   - component: {fileID: 626016758}
   - component: {fileID: 626016757}
   - component: {fileID: 626016760}
+  - component: {fileID: 626016761}
   m_Layer: 0
   m_Name: GameInit
   m_TagString: Untagged
@@ -1603,6 +1604,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userId: 
+  authToken: 
+--- !u!114 &626016761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626016756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bddc6c1dad2fd49b58eb6f0766a581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 626016760}
+        m_TargetAssemblyTypeName: GameDataStorage, Assembly-CSharp
+        m_MethodName: HandleLoadGameStatus
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 99148cfb78584d4458bf0f0e0ba5fb20, type: 2}
 --- !u!1 &652459291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,6 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305f799e3f9ced94abf0f09942407e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: c44d20d04d891a540852f72e25ad68c2, type: 2}
 --- !u!1 &1184543297
 GameObject:
   m_ObjectHideFlags: 0
