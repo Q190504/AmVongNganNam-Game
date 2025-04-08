@@ -7,7 +7,7 @@ public class ScoreDataSO : ScriptableObject
 {
     public string song_id;
     public int easyScore;
-    public string easyState;
+    public ConfigSO.CompletionState easyState;
     public int hardScore;
-    public string hardState;
+    public ConfigSO.CompletionState hardState;
 }
