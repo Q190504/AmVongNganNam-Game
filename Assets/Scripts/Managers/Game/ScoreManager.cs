@@ -92,7 +92,7 @@ public class ScoreManager : MonoBehaviour
     private void ClearCombo()
     {
         combo = 0;
-        longestCombo = 0;
+        
         comboEventPublisher.RaiseEvent(combo);
     }
 
@@ -104,6 +104,7 @@ public class ScoreManager : MonoBehaviour
     private void ClearScore()
     {
         score = 0;
+        longestCombo = 0;
         scoreEventPublisher.RaiseEvent(score);
     }
 
