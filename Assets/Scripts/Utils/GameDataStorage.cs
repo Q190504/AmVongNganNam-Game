@@ -60,15 +60,15 @@ public class GameDataStorage : MonoBehaviour
         }
     }
 
-    public void SaveGameStatus(string[] unlockedSongs = null, string[] unlockedInstruments = null, ScoreInfo[] scores = null, int? song_token = null, int? instrument_token = null)
+    public void SaveGameStatus(string[] unlockedSongs = null, string[] unlockedInstruments = null, ScoreInfo[] scores = null, int song_token = -1, int instrument_token = -1)
     {
         StartCoroutine(SaveGameStatusRequest(unlockedSongs, unlockedInstruments, scores, song_token, instrument_token));
     }
 
-    IEnumerator SaveGameStatusRequest(string[] unlockedSongs, string[] unlockedInstruments, ScoreInfo[] scores, int? song_token, int? instrument_token)
+    IEnumerator SaveGameStatusRequest(string[] unlockedSongs, string[] unlockedInstruments, ScoreInfo[] scores, int song_token = -1, int instrument_token = -1)
     {
         GameStatus stat = new GameStatus();
-
+        
         bool changed = false;
 
         if (unlockedSongs != null && unlockedSongs.Length > 0)
@@ -89,22 +89,15 @@ public class GameDataStorage : MonoBehaviour
         {
             stat.highscore = scores;
             changed = true;
-        }    
-            
+        }     
 
-        if (song_token != null)
+        if (instrument_token >= 0 || song_token >= 0)
         {
-            stat.song_token = (int)song_token;
             changed = true;
-        }    
-            
+        }
 
-        if (instrument_token != null)
-        {
-            stat.instrument_token = (int)instrument_token;
-            changed = true;
-        }    
-            
+        stat.instrument_token = instrument_token;
+        stat.song_token = song_token;
 
         if (!changed)
         {

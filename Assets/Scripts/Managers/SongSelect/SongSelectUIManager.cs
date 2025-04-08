@@ -80,7 +80,7 @@ public class SongSelectUIManager : MonoBehaviour
         GameDataSO gameData = SongManager.Instance.GetGameData();
         string[] new_unlocked_song = gameData.unlocked_songs.ToArray();
         int song_token = gameData.song_token;
-        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null, song_token, null);
+        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null, song_token, -1);
     }
     private bool SetupSongButton(SongInfoSO song, GameObject songButton)
     {

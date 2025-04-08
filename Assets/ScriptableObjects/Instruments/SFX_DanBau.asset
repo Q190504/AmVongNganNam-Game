@@ -12,10 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796883db0fbc06542838a63277e74e99, type: 3}
   m_Name: SFX_DanBau
   m_EditorClassIdentifier: 
-  instrumentName: "\u0110\xE0n B\u1EA7u"
-  instrumentInfo: "\u0110\xE0n b\u1EA7u n\xE8"
-  instrumentImage: {fileID: -2165994278603147544, guid: 8f2980fbedc289c4db65efbf4ad37e2e, type: 3}
-  notes:
+  _isDefault: 1
+  _instrumentId: 0_dan_bau
+  _instrumentName: "\u0110\xE0n B\u1EA7u"
+  _instrumentInfo: "\u0110\xE0n b\u1EA7u hay \u0111\u1ED9c huy\u1EC1n c\u1EA7m (ngh\u0129a
+    l\xE0 \u0111\xE0n m\u1ED9t d\xE2y), l\xE0 m\u1ED9t lo\u1EA1i nh\u1EA1c c\u1EE5
+    truy\u1EC1n th\u1ED1ng c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t, thanh \xE2m ph\xE1t
+    ra nh\u1EDD s\u1EED d\u1EE5ng que hay mi\u1EBFng g\u1EA3y v\xE0o d\xE2y. D\u1EF1a
+    theo c\u1EA5u t\u1EA1o c\u1EE7a h\u1ED9p c\u1ED9ng h\u01B0\u1EDFng, \u0111\xE0n
+    b\u1EA7u chia hai lo\u1EA1i l\xE0 \u0111\xE0n th\xE2n tre v\xE0 \u0111\xE0n h\u1ED9p
+    g\u1ED7.   Trong khi nh\u1EEFng ghi ch\xE9p s\u1EDBm nh\u1EA5t v\u1EC1 \u0111\xE0n
+    b\u1EA7u c\xF3 ni\xEAn \u0111\u1EA1i t\u1EEB n\u0103m 1770, c\xE1c h\u1ECDc gi\u1EA3
+    \u01B0\u1EDBc t\xEDnh tu\u1ED5i c\u1EE7a \u0111\xE0n c\xF3 th\u1EC3 h\u01A1n
+    th\u1EBF m\u1ED9t ngh\xECn n\u0103m. M\u1ED9t truy\u1EC1n thuy\u1EBFt ph\u1ED5
+    bi\u1EBFn v\u1EC1 s\u1EF1 kh\u1EDFi \u0111\u1EA7u c\u1EE7a n\xF3 k\u1EC3 v\u1EC1
+    m\u1ED9t ng\u01B0\u1EDDi ph\u1EE5 n\u1EEF m\xF9 ch\u01A1i n\xF3 \u1EDF ch\u1EE3
+    \u0111\u1EC3 ki\u1EBFm s\u1ED1ng cho gia \u0111\xECnh trong khi ch\u1ED3ng c\xF4
+    ra tr\u1EADn. Cho d\xF9 c\xE2u chuy\u1EC7n n\xE0y c\xF3 d\u1EF1a tr\xEAn th\u1EF1c
+    t\u1EBF hay kh\xF4ng, th\xEC \u0111\xE0n b\u1EA7u trong l\u1ECBch s\u1EED v\u1EABn
+    \u0111\u01B0\u1EE3c ch\u01A1i b\u1EDFi nh\u1EEFng nh\u1EA1c c\xF4ng m\xF9. Cho
+    \u0111\u1EBFn th\u1EDDi gian g\u1EA7n \u0111\xE2y, \xE2m l\u01B0\u1EE3ng m\u1EC1m
+    c\u1EE7a n\xF3 \u0111\xE3 h\u1EA1n ch\u1EBF c\xE1c b\u1ED1i c\u1EA3nh \xE2m nh\u1EA1c
+    m\xE0 n\xF3 c\xF3 th\u1EC3 \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng. \u0110\xE0n
+    b\u1EA7u, ch\u01A1i \u0111\u1ED9c t\u1EA5u, l\xE0 trung t\xE2m c\u1EE7a \xE2m
+    nh\u1EA1c d\xE2n gian Vi\u1EC7t Nam, m\u1ED9t th\u1EC3 lo\u1EA1i ng\xE0y nay
+    v\u1EABn c\xF2n ph\u1ED5 bi\u1EBFn trong n\u01B0\u1EDBc. \u1EE8ng d\u1EE5ng truy\u1EC1n
+    th\u1ED1ng kh\xE1c c\u1EE7a n\xF3 l\xE0 \u0111\u1EC7m cho c\xE1c b\xE0i \u0111\u1ECDc
+    th\u01A1. V\u1EDBi vi\u1EC7c ph\xE1t minh ra b\u1ED9 thu t\u1EEB t\xEDnh, vi\u1EC7c
+    s\u1EED d\u1EE5ng \u0111\xE0n b\u1EA7u \u0111\xE3 lan sang c\xE1c ban nh\u1EA1c
+    h\xF2a t\u1EA5u v\xE0 c\u1EA3 nh\u1EA1c pop v\xE0 rock \u0111\u01B0\u01A1ng \u0111\u1EA1i
+    c\u1EE7a ch\xE2u \xC1. Gi\u1EDD \u0111\xE2y, c\xE1c thi\u1EBFt b\u1ECB \u0111i\u1EC7n
+    t\u1EED \u0111\u01B0\u1EE3c thi\u1EBFt k\u1EBF cho guitar \u0111i\u1EC7n \u0111\xF4i
+    khi \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng v\u1EDBi \u0111\xE0n b\u1EA7u \u0111\u1EC3
+    m\u1EDF r\u1ED9ng h\u01A1n n\u1EEFa b\u1EA3ng \xE2m s\u1EAFc c\u1EE7a n\xF3."
+  _instrumentImage: {fileID: -2165994278603147544, guid: 8f2980fbedc289c4db65efbf4ad37e2e, type: 3}
+  _notes:
   - {fileID: 8300000, guid: c69d04a7d5ac30946b199b22f3bf7b59, type: 3}
   - {fileID: 8300000, guid: 6e62baad50ec07e42a55d630f7888469, type: 3}
   - {fileID: 8300000, guid: 3346956448ca558439acfe84dcdb03ee, type: 3}

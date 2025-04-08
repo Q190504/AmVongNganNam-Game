@@ -7,7 +7,8 @@ public class InstrumentManager : MonoBehaviour
 {
     public static InstrumentManager _instance;
 
-    public List<InstrumentDataSO> instrumentList;
+    [SerializeField]
+    private List<InstrumentDataSO> instrumentList;
     private InstrumentDataSO currentInstrument;
 
     public StringPublisherSO selectInstrumenPublisher;
@@ -38,20 +39,29 @@ public class InstrumentManager : MonoBehaviour
         }
     }
 
-    public void SelectInstrument(int index)
+    public List<InstrumentDataSO> GetInstrumentDatas()
     {
-        if (index >= 0 && index < instrumentList.Count)
-        {
-            currentInstrument = instrumentList[index];
-            selectInstrumenPublisher.RaiseEvent(currentInstrument.instrumentName);
-        }
+        return instrumentList;
     }
 
-    public string GetInstrumentName(int index)
+    public void SelectInstrument(string id)
     {
-        if (index >= 0 && index < instrumentList.Count)
-            return instrumentList[index].instrumentName;
-        else return "null";
+        currentInstrument = FindById(id);
+        selectInstrumenPublisher.RaiseEvent(currentInstrument.instrumentName);
+    }
+
+    public InstrumentDataSO FindById(string id)
+    {
+        return instrumentList.Find(instrument => instrument.instrumentId == id);
+    }
+    public string GetInstrumentName(string id)
+    {
+        var inst = FindById(id);
+        if (inst)
+        {
+            return inst.instrumentName;
+        }
+        return "null";
     }
 
     public AudioClip GetNoteAudio(int noteIndex)

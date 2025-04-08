@@ -9,19 +9,21 @@ public class ScoreManager : MonoBehaviour
     private int good = 0;
     private int bad = 0;
     private int miss = 0;
-    private ConfigSO.CompletionState completionState;
+    private ConfigSO.CompletionState completionState = ConfigSO.CompletionState.NOT_COMPLETED;
     private ConfigSO.CompletionRank rank = ConfigSO.CompletionRank.F;
 
     [SerializeField] private ConfigSO config;
     [SerializeField] private IntPublisherSO healthEventPublisher;
     [SerializeField] private IntPublisherSO scoreEventPublisher;
     [SerializeField] private IntPublisherSO comboEventPublisher;
+    [SerializeField] private IntPublisherSO finalComboEventPublisher;
     [SerializeField] private IntPublisherSO perfectEventPublisher;
     [SerializeField] private IntPublisherSO goodEventPublisher;
     [SerializeField] private IntPublisherSO badEventPublisher;
     [SerializeField] private IntPublisherSO missEventPublisher;
     [SerializeField] private StringPublisherSO rankEventPublisher;
-
+    [SerializeField] private StringPublisherSO competionStateEventPublisher;
+    [SerializeField] private VoidPublisherSO toggleNewRecordEventPublisher;
     private void Start()
     {
         config = SongManager.Instance.GetConfig();
@@ -90,6 +92,7 @@ public class ScoreManager : MonoBehaviour
     private void ClearCombo()
     {
         combo = 0;
+        
         comboEventPublisher.RaiseEvent(combo);
     }
 
@@ -101,6 +104,7 @@ public class ScoreManager : MonoBehaviour
     private void ClearScore()
     {
         score = 0;
+        longestCombo = 0;
         scoreEventPublisher.RaiseEvent(score);
     }
 
@@ -127,6 +131,8 @@ public class ScoreManager : MonoBehaviour
         if (!isCompleted)
         {
             rankEventPublisher.RaiseEvent(rank.ToString());
+            finalComboEventPublisher.RaiseEvent(longestCombo);
+            competionStateEventPublisher.RaiseEvent(completionState.ToString());
             return;
         }
 
@@ -134,6 +140,16 @@ public class ScoreManager : MonoBehaviour
 
         var (songInfo, gameMode) = SongManager.Instance.GetCurrentSelectedSong();
         ScoreDataSO currentRecord = SongManager.Instance.GetScoreDataBySongID(songInfo.id);
+        if (currentRecord == null)
+        {
+            currentRecord = ScriptableObject.CreateInstance<ScoreDataSO>();
+            currentRecord.song_id = songInfo.id;
+            currentRecord.easyScore = 0;
+            currentRecord.easyState = ConfigSO.CompletionState.NOT_COMPLETED;
+            currentRecord.hardScore = 0;
+            currentRecord.hardState = ConfigSO.CompletionState.NOT_COMPLETED;
+        }
+
         rank = config.calculateRank(score, songInfo, gameMode);
 
         completionState = ConfigSO.CompletionState.COMPLETED;
@@ -164,6 +180,8 @@ public class ScoreManager : MonoBehaviour
             if (currentRecord.easyScore < score)
             {
                 currentRecord.easyScore = score;
+                toggleNewRecordEventPublisher.RaiseEvent();
+
                 isChanged = true;
             }
 
@@ -180,6 +198,8 @@ public class ScoreManager : MonoBehaviour
             if (currentRecord.hardScore < score)
             {
                 currentRecord.hardScore = score;
+                toggleNewRecordEventPublisher.RaiseEvent();
+
                 isChanged = true;
             }
 
@@ -220,7 +240,9 @@ public class ScoreManager : MonoBehaviour
             );
         }
 
+        finalComboEventPublisher.RaiseEvent(longestCombo);
         rankEventPublisher.RaiseEvent(rank.ToString());
+        competionStateEventPublisher.RaiseEvent(completionState.ToString());
     }
 
 
