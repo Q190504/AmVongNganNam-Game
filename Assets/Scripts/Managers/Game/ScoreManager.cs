@@ -140,6 +140,16 @@ public class ScoreManager : MonoBehaviour
 
         var (songInfo, gameMode) = SongManager.Instance.GetCurrentSelectedSong();
         ScoreDataSO currentRecord = SongManager.Instance.GetScoreDataBySongID(songInfo.id);
+        if (currentRecord == null)
+        {
+            currentRecord = ScriptableObject.CreateInstance<ScoreDataSO>();
+            currentRecord.song_id = songInfo.id;
+            currentRecord.easyScore = 0;
+            currentRecord.easyState = ConfigSO.CompletionState.NOT_COMPLETED;
+            currentRecord.hardScore = 0;
+            currentRecord.hardState = ConfigSO.CompletionState.NOT_COMPLETED;
+        }
+
         rank = config.calculateRank(score, songInfo, gameMode);
 
         completionState = ConfigSO.CompletionState.COMPLETED;
