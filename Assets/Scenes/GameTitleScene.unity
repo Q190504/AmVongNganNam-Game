@@ -1147,7 +1147,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6b71020bb7f01e043ac66cc50fa1b97a, type: 2}
   - {fileID: 11400000, guid: 713bc5c29d2cd6843894e7ad965a1207, type: 2}
   - {fileID: 11400000, guid: 1febae87bc75d634c9c7263e2fd6fd54, type: 2}
-  selectInstrumenPublisher: {fileID: 0}
+  selectInstrumenPublisher: {fileID: 11400000, guid: 8b2559d97b93114408c50d4dcf075fa4, type: 2}
   fadeDuration: 1
 --- !u!4 &546764892
 Transform:
