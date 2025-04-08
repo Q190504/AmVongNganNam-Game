@@ -16,12 +16,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endPanel;
     [SerializeField] private TMP_Text endScoreText;
     [SerializeField] private TMP_Text endComboText;
-    [SerializeField] private TMP_Text fullComboTitle;
+    [SerializeField] private TMP_Text completionStateText;
     [SerializeField] private TMP_Text totalPerfectText;
     [SerializeField] private TMP_Text totalGoodText;
     [SerializeField] private TMP_Text totalBadText;
     [SerializeField] private TMP_Text totalMissText;
     [SerializeField] private TMP_Text rankText;
+
+    [SerializeField] private TMP_Text newRecordText;
 
     private void Start()
     {
@@ -67,6 +69,15 @@ public class UIManager : MonoBehaviour
         endPanel.SetActive(true);
     }
 
+    public void ShowNewRecord()
+    {
+        newRecordText.gameObject.SetActive(true);
+    }
+    public void SetCompletionState(string completionState)
+    {
+        completionStateText.text = completionState.ToString();
+    }
+
     public void SetHighestCombo(int newCombo)
     {
         endComboText.text = newCombo.ToString();
@@ -100,6 +111,6 @@ public class UIManager : MonoBehaviour
     public void HideEndPanel()
     {
         endPanel.SetActive(false);
-        fullComboTitle.gameObject.SetActive(false);
+        newRecordText.gameObject.SetActive(false);
     }
 }
