@@ -4,22 +4,37 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "NewInstrument", menuName = "Music/Instrument Data")]
 public class InstrumentDataSO : ScriptableObject
 {
-    [Header("Instrument Id")]
-    public string instrumentId;
+    [SerializeField]
+    private bool _isDefault;
+    public bool isDefault => _isDefault;
 
-    [Header("Instrument Name")]
-    public string instrumentName;
+    [SerializeField]
+    private string _instrumentId;
 
-    [Header("Instrument Info")]
-    public string instrumentInfo;
+    public string instrumentId => _instrumentId;
 
-    [Header("Instrument Image")]
-    public Sprite instrumentImage;
+    [SerializeField]
+    private string _instrumentName;
 
+    public string instrumentName => _instrumentName;
+
+    [SerializeField]
+    private string _instrumentInfo;
+
+    public string instrumentInfo => _instrumentInfo;
+
+
+    [SerializeField]
+    private Sprite _instrumentImage;
+
+    public Sprite instrumentImage => _instrumentImage;
 
     [Header("Notes\n0 -> 6: C5 -> B5, 7 -> 13: C4 -> B4, 14 -> 20: C3 -> B3")]
-    public AudioClip[] notes;
+    [SerializeField]
+    private AudioClip[] _notes;
     //0->6: C5 -> B5
     //7->13: C4 -> B4
     //14->20: C3 -> B3
+
+    public AudioClip[] notes => _notes;
 }

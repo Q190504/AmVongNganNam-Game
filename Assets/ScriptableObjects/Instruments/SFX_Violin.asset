@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796883db0fbc06542838a63277e74e99, type: 3}
   m_Name: SFX_Violin
   m_EditorClassIdentifier: 
-  instrumentName: Violin
-  instrumentInfo: "Quao \u0111\xE0n Violin n\xE8 m\u1ECDi ng\u01B0\u1EDDi \u01A1i"
-  instrumentImage: {fileID: -242939261221526619, guid: 2670c140b395bb74693a89edf78eb176, type: 3}
-  notes:
-  - {fileID: 8300000, guid: f7e374293fda5514983181a0ed7d4fc0, type: 3}
-  - {fileID: 8300000, guid: 71fdfcaac1ca03d49a8a41a27e6c11ed, type: 3}
-  - {fileID: 8300000, guid: 5aa3beaa4dce16d45b0085ea12f7430d, type: 3}
+  _isDefault: 0
+  _instrumentId: 3_violin
+  _instrumentName: Violin
+  _instrumentInfo: Violin
+  _instrumentImage: {fileID: -242939261221526619, guid: 2670c140b395bb74693a89edf78eb176, type: 3}
+  _notes:
+  - {fileID: 0}
+  - {fileID: 0}
