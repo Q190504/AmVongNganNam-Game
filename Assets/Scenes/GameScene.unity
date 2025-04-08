@@ -1028,6 +1028,7 @@ MonoBehaviour:
   noteTimings: []
   config: {fileID: 11400000, guid: c44d20d04d891a540852f72e25ad68c2, type: 2}
   gameSongUpdatePublisherSO: {fileID: 11400000, guid: 5a535ca8cb060a64fbd92d05500891d9, type: 2}
+  endGamePublisher: {fileID: 11400000, guid: 3295c5de051128048864fc919444d64c, type: 2}
   travelDuration: 0
 --- !u!114 &316320413
 MonoBehaviour:
@@ -3892,7 +3893,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1231509678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d67c870696e604e92e17f2f06b7f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 90bddc6c1dad2fd49b58eb6f0766a581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EventResponse:
@@ -4168,7 +4169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240515088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d67c870696e604e92e17f2f06b7f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 90bddc6c1dad2fd49b58eb6f0766a581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EventResponse:
@@ -4177,7 +4178,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1240515090}
         m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
         m_MethodName: EndGame
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4992,8 +4993,8 @@ GameObject:
   - component: {fileID: 1512271284}
   - component: {fileID: 1512271283}
   - component: {fileID: 1512271282}
-  - component: {fileID: 1512271287}
   - component: {fileID: 1512271288}
+  - component: {fileID: 1512271289}
   m_Layer: 0
   m_Name: GameUIManager
   m_TagString: Untagged
@@ -5321,34 +5322,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: bc46cac31890ddd47b534d6d0b2d82ab, type: 2}
---- !u!114 &1512271287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512271274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d67c870696e604e92e17f2f06b7f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1512271276}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowEndPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  publisher: {fileID: 11400000, guid: 3295c5de051128048864fc919444d64c, type: 2}
 --- !u!114 &1512271288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5389,6 +5362,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 4c4a17fbff9b4364b9ff02854f10b309, type: 2}
+--- !u!114 &1512271289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512271274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bddc6c1dad2fd49b58eb6f0766a581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1512271276}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowEndPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 3295c5de051128048864fc919444d64c, type: 2}
 --- !u!1 &1530527509
 GameObject:
   m_ObjectHideFlags: 0
