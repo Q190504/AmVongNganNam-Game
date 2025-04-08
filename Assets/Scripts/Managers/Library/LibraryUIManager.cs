@@ -33,80 +33,138 @@ public class LibraryUIManager : MonoBehaviour
     void Start()
     {
         songList = SongManager.Instance.GetSongInfos();
-        instrumentList = InstrumentManager.Instance.instrumentList;
+        instrumentList = InstrumentManager.Instance.GetInstrumentDatas();
         songButtonList = new List<GameObject>();
         instrumentButtonList = new List<GameObject>();
 
-        for (int i = 0; i < songList.Count; i++)
-        {
-            int index = i; // captures the current value of i to prevent all lambdas from referencing the same final value of i.
+        GenerateSongButtons();
+        GenerateInstrumentButtons();
 
-            GameObject SongButton = Instantiate(songButtonPrefab, songListContentPanel);
-
-            SongButton.GetComponentInChildren<TextMeshProUGUI>().text = GetSongName(index);
-            SongButton.GetComponent<Button>().onClick.AddListener(() => SelectSong(index));
-
-            songButtonList.Add(SongButton);
-        }
-
-        for (int i = 0; i < instrumentList.Count; i++)
-        {
-            int index = i; // captures the current value of i to prevent all lambdas from referencing the same final value of i.
-
-            GameObject instrumentButton = Instantiate(instrumentButtonPrefab, instrumentListContentPanel);
-
-            instrumentButton.GetComponentInChildren<TextMeshProUGUI>().text = GetInstrumentName(index);
-            instrumentButton.GetComponent<Button>().onClick.AddListener(() => SelectInstrument(index));
-
-            instrumentButtonList.Add(instrumentButton);
-        }
-
-        SelectSong(0);
-        SelectInstrument(0);
+        SelectSong(songList[0].id);
+        SelectInstrument(instrumentList[0].instrumentId);
 
         songPanel.SetActive(true);
         instrumentPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GenerateInstrumentButtons()
     {
-
-    }
-
-    public string GetSongName(int index)
-    {
-        if (index >= 0 && index < songList.Count)
-            return songList[index].songName;
-        else return "null";
-    }
-
-    public void SelectSong(int index)
-    {
-        if (index >= 0 && index < songList.Count)
+        bool hasNewInst = false;
+        for (int i = 0; i < instrumentList.Count; i++)
         {
-            currentSong = songList[index];
-            songNameText.text = currentSong.songName;
-            songInfoText.text = currentSong.info;
+            int index = i; // capture index for lambda
+            var inst = instrumentList[index];
+            var instButton = Instantiate(instrumentButtonPrefab, instrumentListContentPanel);
+
+            instButton.GetComponentInChildren<TextMeshProUGUI>().text = inst.instrumentName;
+            instrumentButtonList.Add(instButton);
+
+            hasNewInst = SetupInstrumentButton(inst, instButton);
+
+            if (hasNewInst)
+            {
+                SaveInstrumentList();
+            }
         }
     }
 
-    public string GetInstrumentName(int index)
+    private void GenerateSongButtons()
     {
-        if (index >= 0 && index < instrumentList.Count)
-            return instrumentList[index].instrumentName;
-        else return "null";
+        bool hasNewSong = false;
+        for (int i = 0; i < songList.Count; i++)
+        {
+            int index = i; // capture index for lambda
+            var song = songList[index];
+            var songButton = Instantiate(songButtonPrefab, songListContentPanel);
+
+            songButton.GetComponentInChildren<TextMeshProUGUI>().text = song.songName;
+            songButtonList.Add(songButton);
+
+            hasNewSong = SetupSongButton(song, songButton);
+
+            if (hasNewSong)
+            {
+                SaveSongList();
+            }
+        }
     }
 
-    public void SelectInstrument(int index)
+    private void SaveSongList()
     {
-        if (index >= 0 && index < instrumentList.Count)
+        GameDataSO gameData = SongManager.Instance.GetGameData();
+        string[] new_unlocked_song = gameData.unlocked_songs.ToArray();
+        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null);
+    }
+
+    private void SaveInstrumentList()
+    {
+        GameDataSO gameData = SongManager.Instance.GetGameData();
+        string[] new_unlocked_instrument = gameData.unlocked_instruments.ToArray();
+        GameDataStorage.Instance.SaveGameStatus(null, new_unlocked_instrument, null);
+    }
+    private bool SetupInstrumentButton(InstrumentDataSO inst, GameObject instButton)
+    {
+        var data = SongManager.Instance.GetGameData();
+
+        if (SongManager.Instance.IsInstIdInData(inst.instrumentId))
         {
-            currentInstrument = instrumentList[index];
-            instrumentNameText.text = currentInstrument.instrumentName;
-            instrumentInfoText.text = currentInstrument.instrumentInfo;
-            instrumentImage.sprite = currentInstrument.instrumentImage;
+            UnlockInstrumentUI(inst, instButton);
         }
+        else if (inst.isDefault)
+        {
+            data.unlocked_instruments.Add(inst.instrumentId);
+            UnlockInstrumentUI(inst, instButton);
+            return true;
+        }
+        return false;
+    }
+
+    private void UnlockInstrumentUI(InstrumentDataSO inst, GameObject instButton)
+    {
+        instButton.transform.Find("LockPanel").gameObject.SetActive(false);
+        instButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        instButton.GetComponent<Button>().onClick.AddListener(() => SelectInstrument(inst.instrumentId));
+    }
+
+    private bool SetupSongButton(SongInfoSO song, GameObject songButton)
+    {
+        var data = SongManager.Instance.GetGameData();
+
+        if (SongManager.Instance.IsSongIdInData(song.id))
+        {
+            UnlockSongUI(song, songButton);
+        }
+        else if (song.isDefault)
+        {
+            data.unlocked_songs.Add(song.id);
+            UnlockSongUI(song, songButton);
+            return true;
+        }
+        return false;
+    }
+
+    private void UnlockSongUI(SongInfoSO song, GameObject songButton)
+    {
+        songButton.transform.Find("LockPanel").gameObject.SetActive(false);
+        songButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        songButton.GetComponent<Button>().onClick.AddListener(() => SelectSong(song.id));
+    }
+
+    public void SelectSong(string songID)
+    {
+        currentSong = SongManager.Instance.FindById(songID);
+        if (currentSong == null) return;
+
+        songNameText.text = currentSong.songName;
+        songInfoText.text = currentSong.info;
+    }
+
+    public void SelectInstrument(string id)
+    {
+        currentInstrument = InstrumentManager.Instance.FindById(id);
+        instrumentNameText.text = currentInstrument.instrumentName;
+        instrumentInfoText.text = currentInstrument.instrumentInfo;
+        instrumentImage.sprite = currentInstrument.instrumentImage;
     }
 
     public void SwitchToSongPanel()

@@ -67,6 +67,12 @@ public class SongManager : MonoBehaviour
     {
         return gameData.unlocked_songs.Contains(id);
     }
+
+    public bool IsInstIdInData(string id)
+    {
+        return gameData.unlocked_instruments.Contains(id);
+    }
+
     public void SetGameData(GameDataSO gameData)
     {
         this.gameData = gameData;
