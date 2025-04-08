@@ -6,7 +6,7 @@ public class HealthManager : MonoBehaviour
     private int maxHealth = 100; // Default health
     [SerializeField] FloatPublisherSO healthChangePublisher;
 
-    [SerializeField] VoidPublisherSO endGameEventPublisher;
+    [SerializeField] BoolPublisherSO endGameEventPublisher;
 
     public void DecreaseHealth(int amount)
     {
@@ -25,7 +25,7 @@ public class HealthManager : MonoBehaviour
     private void HandleGameOver()
     {
         Debug.Log("Game Over!");
-        endGameEventPublisher.RaiseEvent();
+        endGameEventPublisher.RaiseEvent(false);
     }
 
     public void ResetHealth()
