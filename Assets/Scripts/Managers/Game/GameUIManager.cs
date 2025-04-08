@@ -41,8 +41,6 @@ public class UIManager : MonoBehaviour
     {
         if (comboText != null)
             comboText.text = newCombo > 0 ? $"Combo: {newCombo}" : "Combo: 0";
-        if (endComboText != null)
-            endComboText.text = newCombo.ToString();
     }
 
     public void UpdateHealthUI(float newHealth)
@@ -67,7 +65,12 @@ public class UIManager : MonoBehaviour
     {
         //TO DO: CHECK IF FULL COMBO -> SET FULL COMBO TEXT TO ACTIVE
         endPanel.SetActive(true);
-    } 
+    }
+
+    public void SetHighestCombo(int newCombo)
+    {
+        endComboText.text = newCombo.ToString();
+    }
 
     public void SetPerfectCount(int perfectCount)
     {
