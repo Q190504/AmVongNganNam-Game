@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,21 @@ public class GameDataStorage : MonoBehaviour
     public string userId;
     public string authToken; // Include JWT or session token if needed
 
+    public static GameDataStorage Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void HandleLoadGameStatus(bool isAuthenticated)
     {
         if (isAuthenticated)
@@ -51,32 +67,55 @@ public class GameDataStorage : MonoBehaviour
 
     IEnumerator SaveGameStatusRequest(string[] unlockedSongs, string[] unlockedInstruments, ScoreInfo[] scores, int? song_token, int? instrument_token)
     {
-        Dictionary<string, object> gameStatusPayload = new Dictionary<string, object>();
+        GameStatus stat = new GameStatus();
+
+        bool changed = false;
 
         if (unlockedSongs != null && unlockedSongs.Length > 0)
-            gameStatusPayload["unlocked_songs"] = unlockedSongs;
+        {
+            stat.unlocked_songs = unlockedSongs;
+            changed = true;
+        }    
+            
 
         if (unlockedInstruments != null && unlockedInstruments.Length > 0)
-            gameStatusPayload["unlocked_instruments"] = unlockedInstruments;
+        {
+            stat.unlocked_instruments = unlockedInstruments;
+            changed = true;
+        }    
+            
 
         if (scores != null && scores.Length > 0)
-            gameStatusPayload["highscore"] = scores;
+        {
+            stat.highscore = scores;
+            changed = true;
+        }    
+            
 
         if (song_token != null)
-            gameStatusPayload["song_token"] = song_token;
+        {
+            stat.song_token = (int)song_token;
+            changed = true;
+        }    
+            
 
         if (instrument_token != null)
-            gameStatusPayload["instrument_token"] = instrument_token;
+        {
+            stat.instrument_token = (int)instrument_token;
+            changed = true;
+        }    
+            
 
-        if (gameStatusPayload.Count == 0)
+        if (!changed)
         {
             Debug.LogWarning("No data to update.");
             yield break;
         }
 
-        string jsonData = JsonUtility.ToJson(new Wrapper<Dictionary<string, object>> { payload = gameStatusPayload });
-        jsonData = jsonData.Replace("{\"payload\":", "").TrimEnd('}'); // Clean wrapper
+       
 
+        string jsonData = JsonUtility.ToJson(stat);
+        Debug.Log(jsonData);
         UnityWebRequest request = new UnityWebRequest(apiUrl, "PUT");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -140,16 +179,15 @@ public class GameDataStorage : MonoBehaviour
             ScoreDataSO temp = ScriptableObject.CreateInstance<ScoreDataSO>();
             temp.song_id = scoreId.song_id;
             temp.easyScore = scoreId.easyScore;
-            temp.easyState = scoreId.easyState;
+            temp.easyState = ConfigSO.mapStringToState(scoreId.easyState);
             temp.hardScore = scoreId.hardScore;
-            temp.hardState = scoreId.hardState;
+            temp.hardState = ConfigSO.mapStringToState(scoreId.hardState);
             gameData.highscore.Add(temp);
         }
 
         SongManager.Instance.SetGameData(gameData);
     }
 
-    // Utility wrapper class to bypass Unity's limitation with serializing arrays/objects directly
     [Serializable]
     private class Wrapper<T>
     {

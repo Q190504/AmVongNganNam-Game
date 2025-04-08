@@ -56,6 +56,7 @@ public class SongSelectUIManager : MonoBehaviour
 
     private void GenerateSongButtons()
     {
+        bool hasNewSong = false;
         for (int i = 0; i < songList.Count; i++)
         {
             int index = i; // capture index for lambda
@@ -65,11 +66,23 @@ public class SongSelectUIManager : MonoBehaviour
             songButton.GetComponentInChildren<TextMeshProUGUI>().text = song.songName;
             songButtonList.Add(songButton);
 
-            SetupSongButton(song, songButton);
+            hasNewSong = SetupSongButton(song, songButton);
+
+            if (hasNewSong)
+            {
+                SaveSongList();
+            }
         }
     }
 
-    private void SetupSongButton(SongInfoSO song, GameObject songButton)
+    private void SaveSongList()
+    {
+        GameDataSO gameData = SongManager.Instance.GetGameData();
+        string[] new_unlocked_song = gameData.unlocked_songs.ToArray();
+        int song_token = gameData.song_token;
+        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null, song_token, null);
+    }
+    private bool SetupSongButton(SongInfoSO song, GameObject songButton)
     {
         var data = SongManager.Instance.GetGameData();
 
@@ -81,11 +94,13 @@ public class SongSelectUIManager : MonoBehaviour
         {
             data.unlocked_songs.Add(song.id);
             UnlockSongUI(song, songButton);
+            return true;
         }
         else
         {
             songButton.GetComponent<Button>().onClick.AddListener(() => UnlockSong(song, songButton));
         }
+        return false;
     }
 
     private void UnlockSongUI(SongInfoSO song, GameObject songButton)
@@ -119,6 +134,7 @@ public class SongSelectUIManager : MonoBehaviour
             {
                 data.song_token -= price;
                 data.unlocked_songs.Add(song.id);
+                SaveSongList();
                 SetupSongButton(song, songButton); // Recheck unlock status
             }
             else
@@ -147,12 +163,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = scoreData.easyScore.ToString();
-                songStateText.text = scoreData.easyState;
+                songStateText.text = scoreData.easyState.ToString();
             }
             else
             {
                 songScoreText.text = scoreData.hardScore.ToString();
-                songStateText.text = scoreData.hardState;
+                songStateText.text = scoreData.hardState.ToString();
             }
         }
         else
@@ -160,12 +176,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = "0";
-                songStateText.text = "";
+                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
             }
             else
             {
                 songScoreText.text = "0";
-                songStateText.text = "";
+                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
             }
         }
     }
@@ -208,12 +224,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = scoreData.easyScore.ToString();
-                songStateText.text = scoreData.easyState;
+                songStateText.text = scoreData.easyState.ToString();
             }
             else
             {
                 songScoreText.text = scoreData.hardScore.ToString();
-                songStateText.text = scoreData.hardState;
+                songStateText.text = scoreData.hardState.ToString();
             }
         }
         else
@@ -221,12 +237,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = "0";
-                songStateText.text = "";
+                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
             }
             else
             {
                 songScoreText.text = "0";
-                songStateText.text = "";
+                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
             }
         }
     }

@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<float> noteTimings;
     [SerializeField] private ConfigSO config;
     [SerializeField] private FloatPublisherSO gameSongUpdatePublisherSO;
+    [SerializeField] private BoolPublisherSO endGamePublisher;
     private int nextNoteIndex = 0;
+    private float songLength = 0;
 
     [SerializeField] private float travelDuration;
 
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
             this.noteTimings = songInfo.hardNoteTimings;
             Debug.Log("Starting game on hard mode...");
         }
+        
     }    
     private void Start()
     {
@@ -45,12 +48,16 @@ public class GameManager : MonoBehaviour
         Load(selectedGame.Item1, config, selectedGame.Item2);
         CalculateTravelDuration();
         AudioManager.Instance.PlayGameSong(songInfo.songClip);
+        this.songLength = AudioManager.Instance.GetGameSongLength();
     }
 
     private void Update()
-    {   
+    {
         if (noteTimings.Count == 0) return;
         float songPosInSeconds = AudioManager.Instance.GetGameSongSecond();
+
+        if (songPosInSeconds >= songLength)
+            endGamePublisher.RaiseEvent(true);
         gameSongUpdatePublisherSO.RaiseEvent(songPosInSeconds);
     }
 

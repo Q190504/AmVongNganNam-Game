@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager _instance;
 
-    public VoidPublisherSO endGamePublisher;
+    
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
@@ -55,9 +55,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if(gameSongSource != null && gameSongSource.clip != null)
-            if (gameSongSource.time >= gameSongSource.clip.length)
-                endGamePublisher.RaiseEvent();           
+                 
     }
 
     public void PlayBGM(AudioClip clip)
@@ -103,6 +101,11 @@ public class AudioManager : MonoBehaviour
     public float GetGameSongSecond()
     {
         return gameSongSource.time;
+    }
+
+    public float GetGameSongLength()
+    {
+        return gameSongSource.clip.length;
     }
 
     public void SetBGMVolume(float volume) => bgmSource.volume = volume;

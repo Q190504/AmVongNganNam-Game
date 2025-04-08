@@ -8,7 +8,8 @@ using System.Net;
 public class SongLoader : MonoBehaviour
 {
     public static SongLoader Instance { get; private set; }
-    private string apiUrl = "https://avnn-server.onrender.com/api/songs";
+    //private string apiUrl = "https://avnn-server.onrender.com/api/songs";
+    private string apiUrl = "http://localhost:5000/api/songs";
     public string savePath = "Assets/ScriptableObjects/Songs/"; // Path to save SOs
 
     private void Awake()
