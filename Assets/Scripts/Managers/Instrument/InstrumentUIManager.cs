@@ -16,9 +16,6 @@ public class InstrumentUIManager : MonoBehaviour
 
     private bool? userConfirmedUnlock;
 
-    [SerializeField] private TMP_Text currentInstrumentName;
-
-
     private void Start()
     {
         instrumentList = InstrumentManager.Instance.GetInstrumentDatas();
@@ -124,9 +121,4 @@ public class InstrumentUIManager : MonoBehaviour
 
     public void OnConfirmUnlock() => userConfirmedUnlock = true;
     public void OnCancelUnlock() => userConfirmedUnlock = false;
-
-    public void SetCurrentInstrumentName(string instrumentName)
-    {
-        currentInstrumentName.text = instrumentName;
-    }
 }
