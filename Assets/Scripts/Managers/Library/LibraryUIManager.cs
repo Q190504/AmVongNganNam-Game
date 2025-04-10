@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.PointerEventData;
 
 
 public class LibraryUIManager : MonoBehaviour
@@ -9,6 +10,14 @@ public class LibraryUIManager : MonoBehaviour
     [Header("Panels")]
     public GameObject songPanel;
     public GameObject instrumentPanel;
+
+    [Header("Buttons")]
+    [SerializeField] private Button switchToInstrumentPanelButton;
+    [SerializeField] private Button switchToSongPanelButton;
+
+    [Header("Sprites")]
+    [SerializeField] private Sprite selectedButtonSprite;
+    [SerializeField] private Sprite nonselectedButtonSprite;
 
     [Header("Song")]
     public List<SongInfoSO> songList;
@@ -43,7 +52,8 @@ public class LibraryUIManager : MonoBehaviour
         SelectSong(songList[0].id);
         SelectInstrument(instrumentList[0].instrumentId);
 
-        songPanel.SetActive(true);
+        SwitchToSongPanel();
+
         instrumentPanel.SetActive(false);
     }
 
@@ -57,6 +67,7 @@ public class LibraryUIManager : MonoBehaviour
             var instButton = Instantiate(instrumentButtonPrefab, instrumentListContentPanel);
 
             instButton.GetComponentInChildren<TextMeshProUGUI>().text = inst.instrumentName;
+            instButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
             instrumentButtonList.Add(instButton);
 
             hasNewInst = SetupInstrumentButton(inst, instButton);
@@ -78,6 +89,7 @@ public class LibraryUIManager : MonoBehaviour
             var songButton = Instantiate(songButtonPrefab, songListContentPanel);
 
             songButton.GetComponentInChildren<TextMeshProUGUI>().text = song.songName;
+            songButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
             songButtonList.Add(songButton);
 
             hasNewSong = SetupSongButton(song, songButton);
@@ -157,6 +169,15 @@ public class LibraryUIManager : MonoBehaviour
 
         songNameText.text = currentSong.songName;
         songInfoText.text = currentSong.info;
+
+        foreach (GameObject songButton in songButtonList)
+        {
+            TMP_Text buttonText = songButton.GetComponentInChildren<TMP_Text>();
+            if (buttonText.text == currentSong.songName)
+                songButton.GetComponent<Image>().sprite = selectedButtonSprite;
+            else
+                songButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
+        }
     }
 
     public void SelectInstrument(string id)
@@ -165,17 +186,30 @@ public class LibraryUIManager : MonoBehaviour
         instrumentNameText.text = currentInstrument.instrumentName;
         instrumentInfoText.text = currentInstrument.instrumentInfo;
         instrumentImage.sprite = currentInstrument.instrumentImage;
+
+        foreach (GameObject instrumentButton in instrumentButtonList)
+        {
+            TMP_Text buttonText = instrumentButton.GetComponentInChildren<TMP_Text>();
+            if (buttonText.text == currentInstrument.instrumentName)
+                instrumentButton.GetComponent<Image>().sprite = selectedButtonSprite;
+            else
+                instrumentButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
+        }
     }
 
     public void SwitchToSongPanel()
     {
         songPanel.SetActive(true);
+        switchToSongPanelButton.GetComponent<Image>().color = new Color(100f / 255f, 251f / 255f, 250f / 255f, 255f);
+        switchToInstrumentPanelButton.GetComponent<Image>().color = Color.white;
         instrumentPanel.SetActive(false);
     }
 
     public void SwitchToInstrumentPanel()
     {
         instrumentPanel.SetActive(true);
+        switchToInstrumentPanelButton.GetComponent<Image>().color = new Color(100f / 255f, 251f / 255f, 250f / 255f, 255f);
+        switchToSongPanelButton.GetComponent<Image>().color = Color.white;
         songPanel.SetActive(false);
     }
 }

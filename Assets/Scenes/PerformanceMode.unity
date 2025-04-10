@@ -2840,7 +2840,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1338668085}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7019,6 +7019,8 @@ MonoBehaviour:
   instrumentButtonPrefab: {fileID: 5653433752409434266, guid: df7789bab65dcfd45a19b97227f19a8a, type: 3}
   contentPanel: {fileID: 1979716818}
   unlockConfirmPanel: {fileID: 1473582989}
+  selectedButtonSprite: {fileID: 3016633624009025619, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  nonselectedButtonSprite: {fileID: -5141903200172661101, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
 --- !u!4 &1579142121
 Transform:
   m_ObjectHideFlags: 0
@@ -7051,7 +7053,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1579142120}
         m_TargetAssemblyTypeName: InstrumentUIManager, Assembly-CSharp
-        m_MethodName: SetCurrentInstrumentName
+        m_MethodName: UpdateInstrumentButtons
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8198,7 +8200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7380328368099513629, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  m_Sprite: {fileID: -1698829590350420194, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

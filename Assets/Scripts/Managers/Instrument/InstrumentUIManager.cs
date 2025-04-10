@@ -12,7 +12,11 @@ public class InstrumentUIManager : MonoBehaviour
     private List<InstrumentDataSO> instrumentList;
     private List<GameObject> instrumentButtonList;
     public Transform contentPanel;
-    [SerializeField] public GameObject unlockConfirmPanel;
+    [SerializeField] private GameObject unlockConfirmPanel;
+
+    [Header("Sprites")]
+    [SerializeField] private Sprite selectedButtonSprite;
+    [SerializeField] private Sprite nonselectedButtonSprite;
 
     private bool? userConfirmedUnlock;
 
@@ -121,4 +125,16 @@ public class InstrumentUIManager : MonoBehaviour
 
     public void OnConfirmUnlock() => userConfirmedUnlock = true;
     public void OnCancelUnlock() => userConfirmedUnlock = false;
+
+    public void UpdateInstrumentButtons(string instrumentName)
+    {
+        foreach (GameObject instrumentButton in instrumentButtonList)
+        {
+            TMP_Text buttonText = instrumentButton.GetComponentInChildren<TMP_Text>();
+            if (buttonText.text == instrumentName)
+                instrumentButton.GetComponent<Image>().sprite = selectedButtonSprite;
+            else
+                instrumentButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
+        }
+    }
 }

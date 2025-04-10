@@ -152,6 +152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songPanel: {fileID: 696589112}
   instrumentPanel: {fileID: 552709529}
+  switchToInstrumentPanelButton: {fileID: 927346263}
+  switchToSongPanelButton: {fileID: 2140863320}
+  selectedButtonSprite: {fileID: 3016633624009025619, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  nonselectedButtonSprite: {fileID: -5141903200172661101, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
   songList:
   - {fileID: 11400000, guid: 0b16d233f53ccee4fbb60e5dbf53d374, type: 2}
   songButtonPrefab: {fileID: 1739113446671045039, guid: 0c7370047d47b544f958ca2dc173e3d0, type: 3}
@@ -1055,8 +1059,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2083662617}
   m_HandleRect: {fileID: 2083662616}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9915373
+  m_Value: -0.000010172629
+  m_Size: 0.99153745
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1408,7 +1412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7380328368099513629, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  m_Sprite: {fileID: -1698829590350420194, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3725,7 +3729,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 590989072}
   m_HandleRect: {fileID: 590989071}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

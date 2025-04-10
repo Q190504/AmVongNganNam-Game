@@ -616,10 +616,10 @@ TextureImporter:
         x: 1384
         y: 663
         width: 438
-        height: 140
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 23, z: 21, w: 0}
+      border: {x: 20, y: 23, z: 21, w: 21}
       customData: 
       outline: []
       physicsShape: []
@@ -1031,10 +1031,10 @@ TextureImporter:
       name: asset_1_39
       rect:
         serializedVersion: 2
-        x: 768
-        y: 15
-        width: 467
-        height: 195
+        x: 771
+        y: 18
+        width: 463
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

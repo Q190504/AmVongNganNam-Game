@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreUI(int newScore)
     {
         if (scoreText != null)
-            scoreText.text = $"Score: {newScore}";
+            scoreText.text = $"{newScore}";
         if (endScoreText != null) 
             endScoreText.text = newScore.ToString();
     }
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     public void UpdateComboUI(int newCombo)
     {
         if (comboText != null)
-            comboText.text = newCombo > 0 ? $"Combo: {newCombo}" : "Combo: 0";
+            comboText.text = newCombo > 0 ? $"{newCombo}" : "0";
     }
 
     public void UpdateHealthUI(float newHealth)

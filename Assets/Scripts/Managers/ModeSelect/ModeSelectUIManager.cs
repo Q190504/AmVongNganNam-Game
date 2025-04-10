@@ -9,8 +9,8 @@ public class ModeSelectUIManager : MonoBehaviour
     void Start()
     {
         username.text = PlayerPrefs.GetString("name");
-        song_token.text = "SToken: " + SongManager.Instance.GetGameData().song_token.ToString();
-        instrument_token.text = "IToken: " + SongManager.Instance.GetGameData().instrument_token.ToString();
+        song_token.text = SongManager.Instance.GetGameData().song_token.ToString();
+        instrument_token.text = SongManager.Instance.GetGameData().instrument_token.ToString();
     }
 
     // Update is called once per frame
