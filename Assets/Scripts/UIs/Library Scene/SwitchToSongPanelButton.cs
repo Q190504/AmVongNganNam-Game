@@ -1,23 +1,12 @@
 using UnityEngine;
 
-public class SwitchToSongPanelButton : MonoBehaviour
+public class SwitchToSongPanelButton : BaseButton
 {
     [SerializeField] private VoidPublisherSO switchToSongPanelSO;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SwitchToSongPanel()
     {
+        ButtonClick();
         switchToSongPanelSO.RaiseEvent();
     }
 }

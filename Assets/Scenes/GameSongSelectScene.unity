@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 214498813}
   - component: {fileID: 214498812}
   - component: {fileID: 214498811}
+  - component: {fileID: 214498814}
   m_Layer: 5
   m_Name: Hard
   m_TagString: Untagged
@@ -758,7 +759,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214498812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 214498814}
+        m_TargetAssemblyTypeName: BaseButton, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &214498812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,6 +810,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214498809}
   m_CullTransparentMesh: 1
+--- !u!114 &214498814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214498809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0024e04d39feb4b4ba29827f1d6cae29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
 --- !u!1 &238543992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bcc7e2298a4849ba2d7e9fbbcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   SwitchSceneSO: {fileID: 11400000, guid: c980ff49fba26d046a067a6c4fc592f9, type: 2}
 --- !u!114 &1075303711
 MonoBehaviour:
@@ -3458,6 +3487,7 @@ GameObject:
   - component: {fileID: 1871930982}
   - component: {fileID: 1871930981}
   - component: {fileID: 1871930980}
+  - component: {fileID: 1871930983}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -3528,7 +3558,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1871930981}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1871930983}
+        m_TargetAssemblyTypeName: BaseButton, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1871930981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,6 +3609,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871930978}
   m_CullTransparentMesh: 1
+--- !u!114 &1871930983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871930978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0024e04d39feb4b4ba29827f1d6cae29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
 --- !u!1 &1876780421
 GameObject:
   m_ObjectHideFlags: 0
@@ -4695,6 +4751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96857f8afabebbd4381703c014c6a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   switchToGameModeSceneSO: {fileID: 11400000, guid: c5d61d8c7f0b7e74387677d511209659, type: 2}
 --- !u!1 &2000221576
 GameObject:

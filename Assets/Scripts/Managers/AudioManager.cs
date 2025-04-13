@@ -17,8 +17,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip bgm;
 
     [Header("SFXs")]
-    [SerializeField] AudioClip buttonClick;
-    [SerializeField] AudioClip playButtonClick;
+    [SerializeField] AudioClip buttonClickSFX;
+    [SerializeField] AudioClip switchSceneButtonClickSFX; 
 
     [Header("Audio Settings Panel")]
     private AudioSettingsPanel audioSettingsPanel;
@@ -115,12 +115,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClickButtonSFX()
     {
-        PlaySFX(buttonClick);
+        PlaySFX(buttonClickSFX);
     }
 
-    public void PlayButtonPlayClickSFX()
+    public void PlayClickSwitchSceneButtonSFX()
     {
-        PlaySFX(playButtonClick);
+        Debug.Log("Play switchSceneButtonClickSFX");
+        PlaySFX(switchSceneButtonClickSFX);
     }
 
     public void ToggleAudioSettingsPanel(int alpha)

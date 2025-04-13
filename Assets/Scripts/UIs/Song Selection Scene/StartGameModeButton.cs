@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class StartGameModeButton : MonoBehaviour
+public class StartGameModeButton : BaseButton
 {
     [SerializeField] private StringPublisherSO switchToGameModeSceneSO;
 
     public void SwitchToGameModeScene()
     {
+        SwitchToGameModeScene();
         switchToGameModeSceneSO.RaiseEvent("");
     }
 }

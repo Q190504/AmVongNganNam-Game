@@ -1335,6 +1335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bcc7e2298a4849ba2d7e9fbbcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   SwitchSceneSO: {fileID: 11400000, guid: c980ff49fba26d046a067a6c4fc592f9, type: 2}
 --- !u!114 &486737908
 MonoBehaviour:
@@ -2822,6 +2824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7897d4cb10df4f54290f614550abd798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   switchToInstrumentPanelSO: {fileID: 11400000, guid: 7b4d4dafb1d299b40ab0749524bbc887, type: 2}
 --- !u!1 &1097503837
 GameObject:
@@ -5130,6 +5134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5005abf1a488947b86ec4f9e5f1325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   switchToSongPanelSO: {fileID: 11400000, guid: 7db89922db442ff4eab42648520e5fb8, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

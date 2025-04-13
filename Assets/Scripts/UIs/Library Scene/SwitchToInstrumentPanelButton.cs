@@ -1,24 +1,12 @@
 using UnityEngine;
 
-public class SwitchToInstrumentPanelButton : MonoBehaviour
+public class SwitchToInstrumentPanelButton : BaseButton
 {
     [SerializeField] private VoidPublisherSO switchToInstrumentPanelSO;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SwitchToInstrumentPanel()
     {
+        ButtonClick();
         switchToInstrumentPanelSO.RaiseEvent();
     }
 }
