@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1922174028}
   m_HandleRect: {fileID: 1922174027}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.43237182
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1950258373}
   m_HandleRect: {fileID: 1950258372}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3190,6 +3190,10 @@ MonoBehaviour:
   loadingPanel: {fileID: 598085192}
   unlockConfirmPanel: {fileID: 1828371793}
   gameSceneName: GameScene
+  selectedButtonSprite: {fileID: 1470550972051397626, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  nonselectedButtonSprite: {fileID: 4839935140207321588, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  selectedSongButtonSprite: {fileID: 3016633624009025619, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
+  nonselectedSongButtonSprite: {fileID: -5141903200172661101, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
 --- !u!4 &1617605251
 Transform:
   m_ObjectHideFlags: 0
