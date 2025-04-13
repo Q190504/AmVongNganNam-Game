@@ -653,6 +653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b19c215bc0fec4cb9d74c8d4054a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   openAudioSettingsPanelSO: {fileID: 11400000, guid: f74736de1d26ca442aa905626184f7f5, type: 2}
 --- !u!1001 &432025044
 PrefabInstance:
@@ -1226,6 +1228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bcc7e2298a4849ba2d7e9fbbcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   SwitchSceneSO: {fileID: 11400000, guid: a1a973b3eb58fd04f9e959d73a141df8, type: 2}
 --- !u!114 &497506481
 MonoBehaviour:
@@ -1373,6 +1377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bcc7e2298a4849ba2d7e9fbbcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   SwitchSceneSO: {fileID: 11400000, guid: 4f7089fc6e1957d45b4917bf85a6f4d0, type: 2}
 --- !u!114 &531219389
 MonoBehaviour:
@@ -2155,6 +2161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bcc7e2298a4849ba2d7e9fbbcd52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   SwitchSceneSO: {fileID: 11400000, guid: ac19e1effcf783a4292b7b3fdabc7af9, type: 2}
 --- !u!114 &1134575072
 MonoBehaviour:
@@ -2770,7 +2778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f359aca7a2ff08845a8dab7b8f5192e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnToGameTitleSceneSO: {fileID: 11400000, guid: c980ff49fba26d046a067a6c4fc592f9, type: 2}
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
+  returnToGameTitleSceneSO: {fileID: 11400000, guid: fd596b972f70279439ba0b7658c339a9, type: 2}
 --- !u!1 &1942455647
 GameObject:
   m_ObjectHideFlags: 0

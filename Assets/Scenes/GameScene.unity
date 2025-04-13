@@ -2344,6 +2344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d0ec797076e8049815611d16a75f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   restartGameSO: {fileID: 11400000, guid: 4c4a17fbff9b4364b9ff02854f10b309, type: 2}
   togglePauseGameSO: {fileID: 11400000, guid: b67722e171d58e34ea3f9f0ce0fe061f, type: 2}
 --- !u!1 &638391218
@@ -3395,6 +3397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56569f1116c6d74fab7098656186685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   continueGameSO: {fileID: 11400000, guid: 1cd83b4297300574ca01de53e22007ff, type: 2}
 --- !u!1 &877873066
 GameObject:
@@ -3647,6 +3651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d0ec797076e8049815611d16a75f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   restartGameSO: {fileID: 11400000, guid: 4c4a17fbff9b4364b9ff02854f10b309, type: 2}
   togglePauseGameSO: {fileID: 11400000, guid: b67722e171d58e34ea3f9f0ce0fe061f, type: 2}
 --- !u!1 &965867021
@@ -4103,6 +4109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0478bb400166323498d950e6098161fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 11400000, guid: d1041ec0f55399f48a46ed5fa8341aec, type: 2}
+  switchSceneButtonClickPublisher: {fileID: 0}
   togglePauseGameSO: {fileID: 11400000, guid: b67722e171d58e34ea3f9f0ce0fe061f, type: 2}
 --- !u!1 &1195824247
 GameObject:
@@ -5224,6 +5232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c0b393a8b952d449f4f5fb139d8de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   returnToSongSelectionSceneSO: {fileID: 11400000, guid: e0fbd4f1a69893140a01766f4b0e071f, type: 2}
 --- !u!1 &1422577880
 GameObject:
@@ -6697,6 +6707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c0b393a8b952d449f4f5fb139d8de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickPublisher: {fileID: 0}
+  switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
   returnToSongSelectionSceneSO: {fileID: 11400000, guid: e0fbd4f1a69893140a01766f4b0e071f, type: 2}
 --- !u!1 &1807044924
 GameObject:
