@@ -43,6 +43,7 @@ public class SongSelectUIManager : MonoBehaviour
         songList = SongManager.Instance.GetSongInfos();
         var (selectedSong, savedMode) = SongManager.Instance.GetCurrentSelectedSong();
         selectedGameMode = savedMode;
+        SetDifficultyButtonsSprite(selectedGameMode);
 
         GenerateSongButtons();
 
