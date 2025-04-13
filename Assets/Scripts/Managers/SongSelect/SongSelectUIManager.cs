@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameManager;
 
 public class SongSelectUIManager : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class SongSelectUIManager : MonoBehaviour
     public GameObject loadingPanel;
     public GameObject unlockConfirmPanel;
     public string gameSceneName;
+
+    [Header("Sprites")]
+    [SerializeField] private Sprite selectedButtonSprite;
+    [SerializeField] private Sprite nonselectedButtonSprite;    
+    [SerializeField] private Sprite selectedSongButtonSprite;
+    [SerializeField] private Sprite nonselectedSongButtonSprite;
 
     private List<GameObject> songButtonList = new List<GameObject>();
     private SongInfoSO currentSong;
@@ -154,6 +161,15 @@ public class SongSelectUIManager : MonoBehaviour
         currentSong = SongManager.Instance.FindById(songID);
         if (currentSong == null) return;
 
+        foreach (GameObject songButton in songButtonList)
+        {
+            TMP_Text buttonText = songButton.GetComponentInChildren<TMP_Text>();
+            if (buttonText.text == currentSong.songName)
+                songButton.GetComponent<Image>().sprite = selectedSongButtonSprite;
+            else
+                songButton.GetComponent<Image>().sprite = nonselectedSongButtonSprite;
+        }
+
         songNameText.text = currentSong.songName;
         songInfoText.text = currentSong.info;
 
@@ -215,7 +231,7 @@ public class SongSelectUIManager : MonoBehaviour
     private void SetGameMode(GameManager.GameMode mode)
     {
         selectedGameMode = mode;
-
+        SetDifficultyButtonsSprite(selectedGameMode);
         if (currentSong == null) return;
 
         var scoreData = SongManager.Instance.GetScoreDataBySongID(currentSong.id);
@@ -244,6 +260,21 @@ public class SongSelectUIManager : MonoBehaviour
                 songScoreText.text = "0";
                 songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
             }
+        }
+    }
+
+    public void SetDifficultyButtonsSprite(GameMode mode)
+    { 
+        switch(mode)
+        {
+            case GameMode.NORMAL:
+                easyModeButton.GetComponent<Image>().sprite = selectedButtonSprite;
+                hardModeButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
+                break;
+            case GameMode.HARD:
+                hardModeButton.GetComponent<Image>().sprite = selectedButtonSprite;
+                easyModeButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
+                break;
         }
     }
 }

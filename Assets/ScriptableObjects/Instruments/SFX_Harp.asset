@@ -13,11 +13,60 @@ MonoBehaviour:
   m_Name: SFX_Harp
   m_EditorClassIdentifier: 
   _isDefault: 0
-  _instrumentId: 1_dan_hac
-  _instrumentName: "\u0110\xE0n H\u1EA1c"
-  _instrumentInfo: "\u0110\xE2y l\xE0 \u0110\xE0n H\u1EA1c"
-  _instrumentImage: {fileID: -8211477484670538105, guid: 6a588f3f3916a684d89e34911fd25029, type: 3}
+  _instrumentId: 1_sao_meo
+  _instrumentName: "S\xE1o M\xE8o"
+  _instrumentInfo: "S\xE1o M\xE8o hay c\xF3 t\xEAn g\u1ECDi l\xE0 s\xE1o H\u2019M\xF4ng.
+    \u0110\xE2y l\xE0 m\u1ED9t lo\u1EA1i nh\u1EA1c c\u1EE5 qu\xE1 \u0111\u1ED7i quen
+    thu\u1ED9c c\u1EE7a ng\u01B0\u1EDDi d\xE2n t\u1ED9c H\u2019M\xF4ng sinh s\u1ED1ng
+    t\u1EA1i ph\xEDa B\u1EAFc n\u01B0\u1EDBc ta. L\xE0 m\u1ED9t nh\u1EA1c c\u1EE5
+    kh\xF4ng th\u1EC3 thi\u1EBFu trong nh\u1EEFng l\u1EC5 h\u1ED9i truy\u1EC1n th\u1ED1ng
+    c\u1EE7a ng\u01B0\u1EDDi H\u2019 M\xF4ng. N\xF3 \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng
+    nh\u01B0 m\u1ED9t ph\u01B0\u01A1ng ti\u1EC7n gi\u1EA3i tr\xED trong cu\u1ED9c
+    s\u1ED1ng h\xE0ng ng\xE0y n\u01A1i \u0111\xE2y. \u0110\xE2y c\u0169ng ch\xEDnh
+    l\xE0 ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EC3 c\xE1c ch\xE0ng trai \u201Cth\u1EA3
+    th\xEDnh\u201D giao duy\xEAn v\u1EDBi c\xE1c c\xF4 th\xF4n n\u1EEF xinh \u0111\u1EB9p
+    trong b\u1EA3n. T\u1EA1o n\xEAn c\xE1c m\u1ED1i t\xEDnh \u0111\u1EB9p.  V\u1EC1
+    c\u1EA5u t\u1EA1o th\xEC s\xE1o m\xE8o c\xF3 hai b\u1ED9 ph\u1EADn ch\xEDnh \u0111\xF3
+    l\xE0 mi\u1EC7ng th\u1ED5i v\xE0 th\xE2n s\xE1o.. Mi\u1EC7ng th\u1ED5i s\xE1o
+    m\xE8o \u0111\u01B0\u1EE3c t\u1EA1o n\xEAn b\u1EDFi m\u1ED9t c\xE1i l\u01B0\u1EE1i
+    g\xE0 c\xF3 t\xE1c d\u1EE5ng t\u1EA1o \xE2m c\u01A1 b\u1EA3n. B\xEAn tr\xEAn
+    \u0111\u01B0\u1EE3c g\u1EAFn n\u1EAFp mi\u1EC7ng th\u1ED5i v\u1EEBa \u0111\u1EC3
+    ng\u01B0\u1EDDi ch\u01A1i \u0111\u1EB7t m\xF4i v\xE0o th\u1ED5i v\u1EEBa \u0111\u1EC3
+    b\u1EA3o v\u1EC7 l\u01B0\u1EE1i g\xE0. Trong b\u1EA5t k\u1EF3 m\u1ED7i c\xE2y
+    s\xE1o m\xE8o th\xEC b\u1ED9 ph\u1EADn quan tr\u1ECDng nh\u1EA5t c\u1EE7a lo\u1EA1i
+    nh\u1EA1c c\u1EE5 n\xE0y l\xE0  l\u01B0\u1EE1i g\xE0. L\u01B0\u1EE1i g\xE0 n\xE0y
+    ph\u1EA3i \u0111\u01B0\u1EE3c l\xE0m t\u1EEB mi\u1EBFng \u0111\u1ED3ng c\xF3
+    \u0111\u1ED9 \u0111\xE0n h\u1ED3i t\u1ED1t. M\u1ED9t s\u1ED1 c\xE2y s\xE1o l\u01B0\u1EE1i
+    g\xE0 \u0111\u01B0\u1EE3c l\xE0m t\u1EEB k\u1EBDm nh\u1EEFng ph\u1EA3i \u0111\u01B0\u1EE3c
+    m\xE0i tay r\u1EA5t t\u1EC9 m\u1EC9 v\xE0 c\u1EA9n th\u1EADn.  C\xF3 m\u1ED9t
+    v\xE0i c\xE2y s\xE1o n\u1EAFp mi\u1EC7ng th\u1ED5i \u0111\u01B0\u1EE3c ch\u1EBF
+    t\u1EA1o t\u1EEB nh\u1EF1a ho\u1EB7c \u1ED1ng kim lo\u1EA1i. M\u1ED9t s\u1ED1
+    c\xE2y s\xE1o n\u1EAFp mi\u1EC7ng \u0111\u1EF1c ch\u1EBFt b\u1EB1ng tre tr\xFAc.
+    V\xE0 \u0111a s\u1ED1 s\u1EED d\u1EE5ng tre ho\u1EB7c tr\xFAc  Th\xE2n s\xE1o
+    \u0111\xF3ng vai tr\xF2 l\xE0 h\u1ED9p c\u1ED9ng h\u01B0\u1EDFng c\u1EE7a c\xE2y
+    s\xE1o. C\xF3 th\u1EC3 \u0111\u01B0\u1EE3c l\xE0m t\u1EEB tr\xFAc, n\u1EE9a,
+    g\u1ED7, nh\u1EF1a, kim lo\u1EA1i, \u2026v\xE0 \u0111\u01B0\u1EE3c kho\xE9t c\xE1c
+    l\u1ED7 \u0111\u1ECBnh \xE2m cao \u0111\u1ED9"
+  _instrumentImage: {fileID: 2211479535462323980, guid: 9c8f6e9d764d0c441acfcbe2299398a7, type: 3}
   _notes:
-  - {fileID: 8300000, guid: f7e374293fda5514983181a0ed7d4fc0, type: 3}
-  - {fileID: 8300000, guid: 71fdfcaac1ca03d49a8a41a27e6c11ed, type: 3}
-  - {fileID: 8300000, guid: 5aa3beaa4dce16d45b0085ea12f7430d, type: 3}
+  - {fileID: 8300000, guid: 330dc5b02b4a15545b3e164332d8205b, type: 3}
+  - {fileID: 8300000, guid: 31eb04755f0edad4cb69af29ac936ed8, type: 3}
+  - {fileID: 8300000, guid: ea0b95a28fdea5540965324c26f589d0, type: 3}
+  - {fileID: 8300000, guid: 537ba51cb63a7ce4091ad8eab21a0744, type: 3}
+  - {fileID: 8300000, guid: 23e006513ec5e3a4bb2a353716719f44, type: 3}
+  - {fileID: 8300000, guid: 4c7717497096b434b81b659c8362715c, type: 3}
+  - {fileID: 8300000, guid: 8798a7998106b0749b397ec348fad280, type: 3}
+  - {fileID: 8300000, guid: af6becbff243be94984c795d6b683d1d, type: 3}
+  - {fileID: 8300000, guid: 62e39998734d5664ebe43459b59f9023, type: 3}
+  - {fileID: 8300000, guid: 59f568ad92a4eee4fa702ddc2db931ef, type: 3}
+  - {fileID: 8300000, guid: 478c7d4386b4a064795f3d55d672d057, type: 3}
+  - {fileID: 8300000, guid: 557abcf3927e8a2448fef69388a1c501, type: 3}
+  - {fileID: 8300000, guid: 72d856769c972584198fd99b9a576fbe, type: 3}
+  - {fileID: 8300000, guid: dccd6c217db9bfa4da21f5fe6a7f5ce3, type: 3}
+  - {fileID: 8300000, guid: e1007a9e425b1e647860416c3f5e7d09, type: 3}
+  - {fileID: 8300000, guid: b92149bfb2e485f479b8697a99a49d5a, type: 3}
+  - {fileID: 8300000, guid: 321fc07be5399f749910b71edc49d3cf, type: 3}
+  - {fileID: 8300000, guid: 398076ea996e6b042ba15b50fb894dd8, type: 3}
+  - {fileID: 8300000, guid: 2fb342de1cb43864b9905eafd68a7ce7, type: 3}
+  - {fileID: 8300000, guid: f8a319213c7805d40859917c784a8000, type: 3}
+  - {fileID: 8300000, guid: ee30f8f9f293e574ca0a1a5ab87b72bd, type: 3}
