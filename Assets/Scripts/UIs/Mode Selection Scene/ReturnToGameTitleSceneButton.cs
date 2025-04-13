@@ -6,7 +6,7 @@ public class ReturnToGameTitleSceneButton : BaseButton
 
     public void ReturnToGameTitleScene()
     {
-        ButtonClick();
+        SwitchSceneButtonClick();
         returnToGameTitleSceneSO.RaiseEvent("");
     }
 
