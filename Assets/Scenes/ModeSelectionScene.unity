@@ -2780,7 +2780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickPublisher: {fileID: 0}
   switchSceneButtonClickPublisher: {fileID: 11400000, guid: 2ade770a52edc4f4fbfc817c78a3df89, type: 2}
-  returnToGameTitleSceneSO: {fileID: 11400000, guid: c980ff49fba26d046a067a6c4fc592f9, type: 2}
+  returnToGameTitleSceneSO: {fileID: 11400000, guid: fd596b972f70279439ba0b7658c339a9, type: 2}
 --- !u!1 &1942455647
 GameObject:
   m_ObjectHideFlags: 0
