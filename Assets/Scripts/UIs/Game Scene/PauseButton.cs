@@ -7,6 +7,7 @@ public class PauseButton : BaseButton
     public void PauseGame()
     {
         ButtonClick();
+        PauseManager.Instance.TogglePause();
         togglePauseGameSO.RaiseEvent();
     }
 }
