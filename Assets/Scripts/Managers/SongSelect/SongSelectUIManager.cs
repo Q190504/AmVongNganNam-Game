@@ -30,6 +30,10 @@ public class SongSelectUIManager : MonoBehaviour
     [SerializeField] private Sprite selectedSongButtonSprite;
     [SerializeField] private Sprite nonselectedSongButtonSprite;
 
+    [Header("Event SOs")]
+    [SerializeField] private VoidPublisherSO unlockEvent;
+
+
     private List<GameObject> songButtonList = new List<GameObject>();
     private SongInfoSO currentSong;
     private GameManager.GameMode selectedGameMode;
@@ -144,6 +148,7 @@ public class SongSelectUIManager : MonoBehaviour
                 data.unlocked_songs.Add(song.id);
                 SaveSongList();
                 SetupSongButton(song, songButton); // Recheck unlock status
+                unlockEvent.RaiseEvent();
             }
             else
             {
