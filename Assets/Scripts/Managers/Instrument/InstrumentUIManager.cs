@@ -13,6 +13,7 @@ public class InstrumentUIManager : MonoBehaviour
     private List<GameObject> instrumentButtonList;
     public Transform contentPanel;
     [SerializeField] private GameObject unlockConfirmPanel;
+    [SerializeField] private VoidPublisherSO unlockEvent;
 
     [Header("Sprites")]
     [SerializeField] private Sprite selectedButtonSprite;
@@ -113,6 +114,7 @@ public class InstrumentUIManager : MonoBehaviour
                 data.unlocked_instruments.Add(inst.instrumentId);
                 SaveInstrumentList();
                 SetupInstrumentButton(inst, instButton); // Recheck unlock status
+                unlockEvent.RaiseEvent();
             }
             else
             {

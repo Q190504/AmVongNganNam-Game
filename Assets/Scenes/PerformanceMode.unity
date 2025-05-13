@@ -7073,6 +7073,7 @@ MonoBehaviour:
   instrumentButtonPrefab: {fileID: 5653433752409434266, guid: df7789bab65dcfd45a19b97227f19a8a, type: 3}
   contentPanel: {fileID: 1979716818}
   unlockConfirmPanel: {fileID: 1473582989}
+  unlockEvent: {fileID: 11400000, guid: 385ac0f6329a1ec49ace115e28875605, type: 2}
   selectedButtonSprite: {fileID: 3016633624009025619, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
   nonselectedButtonSprite: {fileID: -5141903200172661101, guid: bc9ab07a687895e4a802760a7671c1bc, type: 3}
 --- !u!4 &1579142121

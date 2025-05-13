@@ -18,7 +18,11 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFXs")]
     [SerializeField] AudioClip buttonClickSFX;
-    [SerializeField] AudioClip switchSceneButtonClickSFX; 
+    [SerializeField] AudioClip switchSceneButtonClickSFX;
+    [SerializeField] AudioClip successSoundSFX; 
+    [SerializeField] AudioClip failureSoundSFX; 
+    [SerializeField] AudioClip unlockInstrumentSFX; 
+    [SerializeField] AudioClip hitSoundSFX; 
 
     [Header("Audio Settings Panel")]
     private AudioSettingsPanel audioSettingsPanel;
@@ -120,8 +124,25 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClickSwitchSceneButtonSFX()
     {
-        Debug.Log("Play switchSceneButtonClickSFX");
         PlaySFX(switchSceneButtonClickSFX);
+    }
+
+    public void PlayEndGameSoundSFX(bool result)
+    {
+        if(result)
+            PlaySFX(successSoundSFX);
+        else
+            PlaySFX(failureSoundSFX);
+    }
+
+    public void PlayUnlockSoundSFX()
+    {
+        PlaySFX(unlockInstrumentSFX);
+    }
+
+    public void PlayHitSoundSFX()
+    {
+        PlaySFX(hitSoundSFX);
     }
 
     public void ToggleAudioSettingsPanel(int alpha)
