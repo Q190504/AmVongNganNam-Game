@@ -1146,6 +1146,8 @@ GameObject:
   - component: {fileID: 316320412}
   - component: {fileID: 316320410}
   - component: {fileID: 316320413}
+  - component: {fileID: 316320414}
+  - component: {fileID: 316320415}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1246,6 +1248,47 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 4c4a17fbff9b4364b9ff02854f10b309, type: 2}
+--- !u!114 &316320414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316320409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08287f449d205b34baa0aa3fb81fa0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puffEffectPrefab: {fileID: 3406379424199268989, guid: c31bbd008e446e84bb7ebc3e80727c7e, type: 3}
+--- !u!114 &316320415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316320409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd6963437ea7904fa1e9c8497d0f5b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 316320414}
+        m_TargetAssemblyTypeName: EffectManager, Assembly-CSharp
+        m_MethodName: OnNoteDisappear
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 9ae29485e9d06154dbd2fc8a5f54b532, type: 2}
 --- !u!1 &338440742
 GameObject:
   m_ObjectHideFlags: 0
