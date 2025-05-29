@@ -18,6 +18,10 @@ public class LibraryUIManager : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] private Sprite selectedButtonSprite;
     [SerializeField] private Sprite nonselectedButtonSprite;
+    [SerializeField] private Sprite songPanelSelectedSprite;
+    [SerializeField] private Sprite instPanelSelectedSprite;
+    [SerializeField] private Sprite songPanelUnselectedSprite;
+    [SerializeField] private Sprite instPanelUnselectedSprite;
 
     [Header("Song")]
     public List<SongInfoSO> songList;
@@ -200,16 +204,16 @@ public class LibraryUIManager : MonoBehaviour
     public void SwitchToSongPanel()
     {
         songPanel.SetActive(true);
-        switchToSongPanelButton.GetComponent<Image>().color = new Color(100f / 255f, 251f / 255f, 250f / 255f, 255f);
-        switchToInstrumentPanelButton.GetComponent<Image>().color = Color.white;
+        switchToSongPanelButton.GetComponent<Image>().sprite = songPanelSelectedSprite;
+        switchToInstrumentPanelButton.GetComponent<Image>().sprite = instPanelUnselectedSprite;
         instrumentPanel.SetActive(false);
     }
 
     public void SwitchToInstrumentPanel()
     {
         instrumentPanel.SetActive(true);
-        switchToInstrumentPanelButton.GetComponent<Image>().color = new Color(100f / 255f, 251f / 255f, 250f / 255f, 255f);
-        switchToSongPanelButton.GetComponent<Image>().color = Color.white;
+        switchToInstrumentPanelButton.GetComponent<Image>().sprite = instPanelSelectedSprite;
+        switchToSongPanelButton.GetComponent<Image>().sprite = songPanelUnselectedSprite;
         songPanel.SetActive(false);
     }
 }

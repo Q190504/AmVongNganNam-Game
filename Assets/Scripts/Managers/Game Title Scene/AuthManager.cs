@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -95,7 +95,19 @@ public class AuthManager : MonoBehaviour
         else
         {
             loginMessage.gameObject.SetActive(true);
-            loginMessage.text = "Error: " + request.error;
+            if (!string.IsNullOrEmpty(request.downloadHandler.text))
+            {
+                try
+                {
+                    ErrorResponse errorResponse = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
+                    loginMessage.text = "Lỗi đăng nhập: " + errorResponse.message;
+                }
+                catch
+                {
+                    loginMessage.text = "Lỗi đăng nhập: " + request.error;
+                }
+            } else 
+                loginMessage.text = "Lỗi đăng nhập: " + request.error;
         }
     }
 
@@ -155,5 +167,10 @@ public class AuthManager : MonoBehaviour
         public string id;
         public string name;
         public string email;
+    }
+    [System.Serializable]
+    public class ErrorResponse
+    {
+        public string message;
     }
 }

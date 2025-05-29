@@ -38,7 +38,7 @@ public class GameTitleUIManager : MonoBehaviour
         if (isLoggedIn)
         {
             errorText.gameObject.SetActive(false);
-            playerText.text = "Welcome back! " + PlayerPrefs.GetString("name");
+            playerText.text = "Xin chào! " + PlayerPrefs.GetString("name");
             SetLoginPanel(false);
             SetPlayPanel(true);
         }
