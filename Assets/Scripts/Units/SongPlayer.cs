@@ -173,4 +173,10 @@ public class SongPlayer : MonoBehaviour
         int seconds = Mathf.FloorToInt(time % 60f);
         return $"{minutes:D2}:{seconds:D2}";
     }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.StopGameSong();
+    }
+
 }
