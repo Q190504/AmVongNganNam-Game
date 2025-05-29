@@ -5,7 +5,7 @@ public class TextSwitcher : MonoBehaviour
 {
     public TextMeshProUGUI uiText;
     public TextAsset textFile;
-    public float switchDelay = 3f;
+    public float switchDelay = 2f;
 
     private string[] lines;
     private int lastLineIndex = -1;

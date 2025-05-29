@@ -1458,6 +1458,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: asset_1_55
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1109
+        width: 420
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e673ddd4fd03d4c4b8505ee94508ff81
+      internalID: 1881584114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asset_1_56
+      rect:
+        serializedVersion: 2
+        x: 2808
+        y: 770
+        width: 101
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78b7952fe7fcc5429890d95f7aedf15
+      internalID: 1172485294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1523,6 +1567,8 @@ TextureImporter:
       asset_1_52: 1533181222
       asset_1_53: -1629214337
       asset_1_54: -409539182
+      asset_1_55: 1881584114
+      asset_1_56: 1172485294
       asset_1_6: 3016633624009025619
       asset_1_7: 6564542071926744925
       asset_1_8: -2662257456290667158

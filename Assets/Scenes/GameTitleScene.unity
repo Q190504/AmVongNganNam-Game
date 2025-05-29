@@ -958,7 +958,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ModeSelectionScene
+          m_StringArgument: ModeSelectionScene/3
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: c980ff49fba26d046a067a6c4fc592f9, type: 2}
@@ -998,7 +998,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LibraryScene
+          m_StringArgument: LibraryScene/1
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 4f7089fc6e1957d45b4917bf85a6f4d0, type: 2}
@@ -1026,7 +1026,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PerformanceMode
+          m_StringArgument: PerformanceMode/3
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: ac19e1effcf783a4292b7b3fdabc7af9, type: 2}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameSongSelectScene
+          m_StringArgument: GameSongSelectScene/3
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: a1a973b3eb58fd04f9e959d73a141df8, type: 2}
@@ -1082,7 +1082,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameScene
+          m_StringArgument: GameScene/3
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: c5d61d8c7f0b7e74387677d511209659, type: 2}
@@ -1110,7 +1110,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameSongSelectScene
+          m_StringArgument: GameSongSelectScene/3
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: e0fbd4f1a69893140a01766f4b0e071f, type: 2}
@@ -1138,7 +1138,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameTitleScene
+          m_StringArgument: GameTitleScene/0
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: fd596b972f70279439ba0b7658c339a9, type: 2}

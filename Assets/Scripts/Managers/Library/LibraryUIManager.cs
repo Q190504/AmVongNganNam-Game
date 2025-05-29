@@ -31,6 +31,7 @@ public class LibraryUIManager : MonoBehaviour
     public TMP_Text songNameText;
     public TMP_Text songInfoText;
     private SongInfoSO currentSong;
+    [SerializeField] private SongPlayer songPlayer;
 
     [Header("Instrument")]
     public List<InstrumentDataSO> instrumentList;
@@ -182,6 +183,8 @@ public class LibraryUIManager : MonoBehaviour
             else
                 songButton.GetComponent<Image>().sprite = nonselectedButtonSprite;
         }
+
+        songPlayer.SetSong(currentSong);
     }
 
     public void SelectInstrument(string id)
@@ -215,5 +218,7 @@ public class LibraryUIManager : MonoBehaviour
         switchToInstrumentPanelButton.GetComponent<Image>().sprite = instPanelSelectedSprite;
         switchToSongPanelButton.GetComponent<Image>().sprite = songPanelUnselectedSprite;
         songPanel.SetActive(false);
+        if (currentSong != null)
+            SelectSong(currentSong.id);
     }
 }

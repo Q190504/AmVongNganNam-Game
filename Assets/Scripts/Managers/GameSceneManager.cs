@@ -46,11 +46,22 @@ public class GameSceneManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        StartCoroutine(LoadAsynchronously(sceneName));
+        string[] parts = sceneName.Split('/');
+        string actualSceneName = parts[0];
+        float delay = 0f;
+
+        if (parts.Length > 1 && float.TryParse(parts[1], out float parsedDelay))
+        {
+            delay = parsedDelay;
+        }
+
+        StartCoroutine(LoadAsynchronously(actualSceneName, delay));
     }
 
-    IEnumerator LoadAsynchronously(string sceneName)
+
+    IEnumerator LoadAsynchronously(string sceneName, float delay)
     {
+        yield return new WaitForSeconds(delay);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
         //loadingScreen.SetActive(true);

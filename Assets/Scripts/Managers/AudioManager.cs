@@ -62,6 +62,10 @@ public class AudioManager : MonoBehaviour
                  
     }
 
+    public void PlayBGM()
+    {
+        PlayBGM(bgm);
+    }
     public void PlayBGM(AudioClip clip)
     {
         bgmSource.clip = clip;
@@ -101,10 +105,24 @@ public class AudioManager : MonoBehaviour
     {
         gameSongSource.Stop();
     }
+    public bool IsBGMPlaying()
+    {
+        return bgmSource != null && bgmSource.isPlaying;
+    }
 
     public float GetGameSongSecond()
     {
         return gameSongSource.time;
+    }
+
+    public AudioSource GetGameSongSource()
+    {
+        return gameSongSource;
+    }
+
+    public void ClearGameSongClip()
+    {
+        gameSongSource.clip = null;
     }
 
     public float GetGameSongLength()
@@ -115,7 +133,6 @@ public class AudioManager : MonoBehaviour
     public void SetBGMVolume(float volume) => bgmSource.volume = volume;
     public void SetGameSongVolume(float volume) => gameSongSource.volume = volume;
     public void SetSFXVolume(float volume) => sfxSource.volume = volume;
-
 
     public void PlayClickButtonSFX()
     {

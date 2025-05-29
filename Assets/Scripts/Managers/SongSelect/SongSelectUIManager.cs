@@ -11,6 +11,7 @@ public class SongSelectUIManager : MonoBehaviour
     public List<SongInfoSO> songList;
     public GameObject songButtonPrefab;
     public Transform songListContentPanel;
+    public SongPlayer songPlayer;
     public TMP_Text songNameText;
     public TMP_Text songInfoText;
     public TMP_Text songScoreText;
@@ -191,6 +192,7 @@ public class SongSelectUIManager : MonoBehaviour
                 songButton.GetComponent<Image>().sprite = nonselectedSongButtonSprite;
         }
 
+        songPlayer.SetSong(currentSong);
         songNameText.text = currentSong.songName;
         songInfoText.text = currentSong.info;
 
