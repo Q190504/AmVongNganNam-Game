@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System;
 using TMPro;
 using UnityEngine;
@@ -13,6 +13,9 @@ public class InstrumentUIManager : MonoBehaviour
     private List<GameObject> instrumentButtonList;
     public Transform contentPanel;
     [SerializeField] private GameObject unlockConfirmPanel;
+    [SerializeField] private GameObject canUnlockButtonPanel;
+    [SerializeField] private GameObject unableUnlockButtonPanel;
+
     [SerializeField] private VoidPublisherSO unlockEvent;
 
     [Header("Sprites")]
@@ -98,15 +101,29 @@ public class InstrumentUIManager : MonoBehaviour
         userConfirmedUnlock = null;
 
         unlockConfirmPanel.SetActive(true);
-        unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"You are unlocking {inst.instrumentId} with {SongManager.Instance.GetConfig().instPrice} instrument tokens.";
 
+        var data = SongManager.Instance.GetGameData();
+        int price = SongManager.Instance.GetConfig().instPrice;
+        if (data.instrument_token >= price)
+        {
+            unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
+            $"Bạn đang sử dụng {SongManager.Instance.GetConfig().instPrice} Đồng Đàn để mở khóa nhạc cụ {inst.name}.";
+            canUnlockButtonPanel.SetActive(true);
+            unableUnlockButtonPanel.SetActive(false);
+        }
+        else
+        {
+            unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
+            $"Bạn cần thêm {SongManager.Instance.GetConfig().instPrice - data.instrument_token} Đồng Đàn để mở khóa nhạc cụ {inst.name}.";
+            canUnlockButtonPanel.SetActive(false);
+            unableUnlockButtonPanel.SetActive(true);
+        }
+        
         yield return new WaitUntil(() => userConfirmedUnlock != null);
 
         if (userConfirmedUnlock == true)
         {
-            var data = SongManager.Instance.GetGameData();
-            int price = SongManager.Instance.GetConfig().instPrice;
+            
 
             if (data.instrument_token >= price)
             {

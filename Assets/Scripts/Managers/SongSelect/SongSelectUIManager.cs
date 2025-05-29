@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,7 +21,11 @@ public class SongSelectUIManager : MonoBehaviour
     public Button easyModeButton;
     public Button hardModeButton;
     public GameObject loadingPanel;
+
     public GameObject unlockConfirmPanel;
+    public GameObject canUnlockButtonPanel;
+    public GameObject unableUnlockButtonPanel;
+
     public string gameSceneName;
 
     [Header("Sprites")]
@@ -132,16 +136,27 @@ public class SongSelectUIManager : MonoBehaviour
         userConfirmedUnlock = null;
 
         unlockConfirmPanel.SetActive(true);
-        unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"You are unlocking {song.name} with {SongManager.Instance.GetConfig().songPrice} song tokens.";
+
+        var data = SongManager.Instance.GetGameData();
+        int price = SongManager.Instance.GetConfig().songPrice;
+        if (data.song_token >= price)
+        {
+            unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
+            $"Bạn đang sử dụng {SongManager.Instance.GetConfig().songPrice} Đồng Nhạc để mở khóa bài {song.name}.";
+            canUnlockButtonPanel.SetActive(true);
+            unableUnlockButtonPanel.SetActive(false);
+        } else
+        {
+            unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
+            $"Bạn cần thêm {SongManager.Instance.GetConfig().songPrice - data.song_token} Đồng Nhạc để mở khóa bài {song.name}.";
+            canUnlockButtonPanel.SetActive(false);
+            unableUnlockButtonPanel.SetActive(true);
+        }
 
         yield return new WaitUntil(() => userConfirmedUnlock != null);
 
         if (userConfirmedUnlock == true)
         {
-            var data = SongManager.Instance.GetGameData();
-            int price = SongManager.Instance.GetConfig().songPrice;
-
             if (data.song_token >= price)
             {
                 data.song_token -= price;
