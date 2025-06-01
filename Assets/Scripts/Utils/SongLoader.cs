@@ -11,12 +11,14 @@ public class SongLoader : MonoBehaviour
     //private string apiUrl = "https://avnn-server.onrender.com/api/songs";
     private string apiUrl = "http://localhost:5000/api/songs";
     public string savePath = "Assets/ScriptableObjects/Songs/"; // Path to save SOs
-
+    public StringPublisherSO errorPublisher;
+    public bool IsDoneLoading { get; private set; }
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            this.IsDoneLoading = false;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -28,10 +30,10 @@ public class SongLoader : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FetchSongs());
+        StartCoroutine(FetchSongs(() => IsDoneLoading = true));
     }
 
-    IEnumerator FetchSongs()
+    IEnumerator FetchSongs(System.Action onComplete)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(apiUrl))
         {
@@ -47,10 +49,12 @@ public class SongLoader : MonoBehaviour
                 {
                     CreateSO(song);
                 }
+                onComplete?.Invoke();
             }
             else
             {
                 Debug.LogError("Failed to fetch songs: " + request.error);
+                errorPublisher.RaiseEvent("Failed to fetch songs: " + request.error);
             }
         }
     }
@@ -134,6 +138,7 @@ public class SongLoader : MonoBehaviour
             else
             {
                 Debug.LogError("Failed to download MIDI: " + request.error);
+                errorPublisher.RaiseEvent("Failed to download resource: " + request.error);
             }
         }
     }
@@ -158,6 +163,7 @@ public class SongLoader : MonoBehaviour
             else
             {
                 Debug.LogError("Failed to download audio: " + request.error);
+                errorPublisher.RaiseEvent("Failed to download resource: " + request.error);
             }
         }
     }

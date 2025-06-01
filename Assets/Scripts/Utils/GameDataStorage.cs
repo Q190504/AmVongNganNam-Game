@@ -36,14 +36,16 @@ public class GameDataStorage : MonoBehaviour
     private string apiUrl = "http://localhost:5000/api/game-status";
     public string userId;
     public string authToken; // Include JWT or session token if needed
-
+    public bool IsDoneLoading { get; private set; }
     public static GameDataStorage Instance { get; private set; }
+    public StringPublisherSO errorPublisher;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            this.IsDoneLoading = false;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -56,7 +58,7 @@ public class GameDataStorage : MonoBehaviour
     {
         if (isAuthenticated)
         {
-            StartCoroutine(LoadGameStatus());
+            StartCoroutine(LoadGameStatus(() => IsDoneLoading = true));
         }
     }
 
@@ -124,11 +126,12 @@ public class GameDataStorage : MonoBehaviour
         else
         {
             Debug.LogError("Error Saving Game Status: " + request.error);
+            errorPublisher.RaiseEvent("Failed to save game status: " + request.error);
         }
     }
 
 
-    IEnumerator LoadGameStatus()
+    IEnumerator LoadGameStatus(System.Action onComplete)
     {
         string url = apiUrl;
 
@@ -145,17 +148,21 @@ public class GameDataStorage : MonoBehaviour
             {
                 GameStatus loadedStatus = JsonUtility.FromJson<GameStatus>(json);
                 CreateSO(loadedStatus);
-                
+                onComplete?.Invoke();
+
             }
             catch (Exception ex)
             {
                 Debug.LogError("JSON parsing failed: " + ex.Message);
+                errorPublisher.RaiseEvent("JSON parsing failed: " + ex.Message);
             }
         }
         else
         {
-            Debug.LogError("Request failed: " + request.error);
+            Debug.LogError("Failed to load game status: " + request.error);
+            errorPublisher.RaiseEvent("Failed to load game status: " + request.error);
         }
+        
     }
 
 

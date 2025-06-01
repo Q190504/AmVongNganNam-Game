@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
+using static AuthManager;
 
 public class AuthManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class AuthManager : MonoBehaviour
     public TextMeshProUGUI loginMessage;
 
     public BoolPublisherSO updateUISO;
-    public StringPublisherSO updateErrorTextSO;
+    public StringPublisherSO errorPublisher;
 
     //private static string apiUrl = "https://avnn-server.onrender.com/api/auth";
 
@@ -88,9 +89,17 @@ public class AuthManager : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseJson = request.downloadHandler.text;
-            LoginResponse response = JsonUtility.FromJson<LoginResponse>(responseJson);            
-            Debug.Log("Login Successful! Token: " + response.token);
-            StartCoroutine(StartLoginCheck());
+            LoginResponse response = JsonUtility.FromJson<LoginResponse>(responseJson);        
+            if (response.user.isAdmin)
+            {
+                loginMessage.gameObject.SetActive(true);
+                loginMessage.text = "Lỗi đăng nhập: Tài khoản không hợp lệ.";
+                StartCoroutine(Logout());
+            } else
+            {
+                Debug.Log("Login Successful! Token: " + response.token);
+                StartCoroutine(StartLoginCheck());
+            }
         }
         else
         {
@@ -104,10 +113,13 @@ public class AuthManager : MonoBehaviour
                 }
                 catch
                 {
-                    loginMessage.text = "Lỗi đăng nhập: " + request.error;
+                    errorPublisher.RaiseEvent("Failed to login status: " + request.error);
                 }
-            } else 
-                loginMessage.text = "Lỗi đăng nhập: " + request.error;
+            }
+            else
+            {
+                errorPublisher.RaiseEvent("Failed to login: " + request.error);
+            }
         }
     }
 
@@ -127,6 +139,7 @@ public class AuthManager : MonoBehaviour
         }
         else
         {
+            errorPublisher.RaiseEvent("Failed to logout: " + request.error);
             Debug.Log("Error: " + request.error);
         }
     }
@@ -167,6 +180,7 @@ public class AuthManager : MonoBehaviour
         public string id;
         public string name;
         public string email;
+        public bool isAdmin;
     }
     [System.Serializable]
     public class ErrorResponse
