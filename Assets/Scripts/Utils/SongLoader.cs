@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.IO;
-using System.Net;
 
 public class SongLoader : MonoBehaviour
 {
     public static SongLoader Instance { get; private set; }
-    //private string apiUrl = "https://avnn-server.onrender.com/api/songs";
-    private string apiUrl = "http://localhost:5000/api/songs";
+    private string apiUrl = ENV_CONFIG.SONG_URL;
     public string savePath = "Assets/ScriptableObjects/Songs/"; // Path to save SOs
     public StringPublisherSO errorPublisher;
     public bool IsDoneLoading { get; private set; }

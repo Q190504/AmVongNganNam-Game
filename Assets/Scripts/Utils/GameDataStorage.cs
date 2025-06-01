@@ -32,10 +32,7 @@ public class GameStatus
 
 public class GameDataStorage : MonoBehaviour
 {
-    //private string apiUrl = "https://avnn-server.onrender.com/api/game-status";
-    private string apiUrl = "http://localhost:5000/api/game-status";
-    public string userId;
-    public string authToken; // Include JWT or session token if needed
+    private string apiUrl = ENV_CONFIG.STAT_URL;
     public bool IsDoneLoading { get; private set; }
     public static GameDataStorage Instance { get; private set; }
     public StringPublisherSO errorPublisher;

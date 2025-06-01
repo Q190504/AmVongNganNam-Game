@@ -2,8 +2,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UIElements;
-using static AuthManager;
 
 public class AuthManager : MonoBehaviour
 {
@@ -17,9 +15,9 @@ public class AuthManager : MonoBehaviour
     public BoolPublisherSO updateUISO;
     public StringPublisherSO errorPublisher;
 
-    //private static string apiUrl = "https://avnn-server.onrender.com/api/auth";
+    
 
-    private static string apiUrl = "http://localhost:5000/api/auth";
+    private static string apiUrl = ENV_CONFIG.AUTH_URL;
     void Start()
     {
         StartCoroutine(StartLoginCheck());

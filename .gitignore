@@ -28,7 +28,7 @@
 
 # Environment directory
 .env/
-
+_env/
 # Gradle cache directory
 .gradle/
 
