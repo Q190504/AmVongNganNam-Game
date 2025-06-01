@@ -14,6 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeatsShownOnScreen: 3
   TapAccuracy: 0
+  perfectScore: 100
+  goodScore: 50
+  badScore: 20
+  comboBonus: 10
   perfectThreshold: 0.1
   goodThreshold: 0.3
-  badThreshold: 0.5
+  badThreshold: 0.4
+  badPenalty: 5
+  missPenalty: 10
+  fc_token: 1
+  ap_token: 2
+  completion_token_div: 500
+  songPrice: 1500
+  instPrice: 5
