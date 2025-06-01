@@ -1410,8 +1410,6 @@ MonoBehaviour:
   instrumentList:
   - {fileID: 11400000, guid: a3a69a940ce5fcd4c9b93d9effb03e65, type: 2}
   - {fileID: 11400000, guid: 6b71020bb7f01e043ac66cc50fa1b97a, type: 2}
-  - {fileID: 11400000, guid: 713bc5c29d2cd6843894e7ad965a1207, type: 2}
-  - {fileID: 11400000, guid: 1febae87bc75d634c9c7263e2fd6fd54, type: 2}
   selectInstrumenPublisher: {fileID: 11400000, guid: 8b2559d97b93114408c50d4dcf075fa4, type: 2}
   fadeDuration: 1
 --- !u!4 &546764892
@@ -10577,7 +10575,7 @@ PrefabInstance:
       objectReference: {fileID: 6610732079297278265, guid: de8192e41aac95a4b9edfcb34edf3cac, type: 2}
     - target: {fileID: 6707139485226608477, guid: e8d64086e929cba448cbeba302c54163, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 8192
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 6707139485226608477, guid: e8d64086e929cba448cbeba302c54163, type: 3}
       propertyPath: m_hasFontAssetChanged

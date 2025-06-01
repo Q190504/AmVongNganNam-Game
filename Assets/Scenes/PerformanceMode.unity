@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\u1EDF kh\xF3a b\xE0i h\xE1t"
+  m_text: "M\u1EDF kh\xF3a nh\u1EA1c c\u1EE5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de8192e41aac95a4b9edfcb34edf3cac, type: 2}
   m_sharedMaterial: {fileID: 6610732079297278265, guid: de8192e41aac95a4b9edfcb34edf3cac, type: 2}
@@ -6032,7 +6032,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

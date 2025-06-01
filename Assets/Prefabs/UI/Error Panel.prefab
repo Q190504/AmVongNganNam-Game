@@ -154,7 +154,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "L\u1ED7i"
+  m_text: "L\u1ED7i r\u1EA5t b\u1EF1 L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i
+    r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t
+    b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1L\u1ED7i
+    r\u1EA5t b\u1EF1L\u1ED7i r\u1EA5t b\u1EF1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de8192e41aac95a4b9edfcb34edf3cac, type: 2}
   m_sharedMaterial: {fileID: 6610732079297278265, guid: de8192e41aac95a4b9edfcb34edf3cac, type: 2}
@@ -181,7 +184,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 39.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
