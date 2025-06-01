@@ -138,15 +138,19 @@ public class AuthManager : MonoBehaviour
         UnityWebRequest request = new UnityWebRequest(apiUrl + "/logout", "POST");
         request.SetRequestHeader("Content-Type", "application/json");
 
+
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Logout Successful!");
-            StartCoroutine(StartLoginCheck());
+
             PlayerPrefs.DeleteKey("name");
             PlayerPrefs.DeleteKey("UID");
             PlayerPrefs.DeleteKey("token");
+
+            StartCoroutine(StartLoginCheck());
+            
         }
         else
         {
