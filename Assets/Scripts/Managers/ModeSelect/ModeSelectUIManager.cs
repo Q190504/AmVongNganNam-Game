@@ -7,6 +7,10 @@ public class ModeSelectUIManager : MonoBehaviour
     
     void Start()
     {
+        if (!AudioManager.Instance.IsBGMPlaying())
+        {
+            AudioManager.Instance.PlayBGM();
+        }
         username.text = PlayerPrefs.GetString("name");
     }
 

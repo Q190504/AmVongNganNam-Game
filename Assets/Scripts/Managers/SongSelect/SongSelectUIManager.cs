@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static ConfigSO;
 using static GameManager;
 
 public class SongSelectUIManager : MonoBehaviour
@@ -202,12 +203,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = scoreData.easyScore.ToString();
-                songStateText.text = scoreData.easyState.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(scoreData.easyState);
             }
             else
             {
                 songScoreText.text = scoreData.hardScore.ToString();
-                songStateText.text = scoreData.hardState.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(scoreData.hardState);
             }
         }
         else
@@ -215,12 +216,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = "0";
-                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(CompletionState.NOT_COMPLETED);
             }
             else
             {
                 songScoreText.text = "0";
-                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(CompletionState.NOT_COMPLETED);
             }
         }
     }
@@ -263,12 +264,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = scoreData.easyScore.ToString();
-                songStateText.text = scoreData.easyState.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(scoreData.easyState);
             }
             else
             {
                 songScoreText.text = scoreData.hardScore.ToString();
-                songStateText.text = scoreData.hardState.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(scoreData.hardState);
             }
         }
         else
@@ -276,12 +277,12 @@ public class SongSelectUIManager : MonoBehaviour
             if (selectedGameMode == GameManager.GameMode.NORMAL)
             {
                 songScoreText.text = "0";
-                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(CompletionState.NOT_COMPLETED);
             }
             else
             {
                 songScoreText.text = "0";
-                songStateText.text = ConfigSO.CompletionState.NOT_COMPLETED.ToString();
+                songStateText.text = ConfigSO.StateToDisplayString(CompletionState.NOT_COMPLETED);
             }
         }
     }

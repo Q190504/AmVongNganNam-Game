@@ -79,6 +79,11 @@ public class ConfigSO : ScriptableObject
         { CompletionState.ALL_PERFECT, "AP" }
     };
 
+    public static string StateToDisplayString(CompletionState state)
+    {
+        return state.ToString().Replace("_", " ");
+    }
+
     public static CompletionState mapStringToState (string stateString)
     {
         return (stateMap[stateString]);
