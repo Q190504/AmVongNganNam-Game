@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
 using TMPro;
@@ -76,4 +76,41 @@ public class GameSceneManager : MonoBehaviour
             yield return null;
         }
     }
+
+    [Header("Error Panel")]
+    public GameObject errorPanel;
+    public TMP_Text errorMessageText;
+    public void ShowError(string message)
+    {
+        if (errorPanel == null)
+        {
+            errorPanel = GameObject.Find("Error Panel");
+            if (errorPanel == null)
+            {
+                Debug.LogWarning("ErrorPanel not found in scene!");
+                return;
+            } else
+            {
+                CanvasGroup canvasGroup = errorPanel.GetComponent<CanvasGroup>();
+                canvasGroup.alpha = 1f;           // fully visible
+                canvasGroup.interactable = true;  // allow interaction
+                canvasGroup.blocksRaycasts = true;// block clicks behind the panel
+
+            }
+        }
+
+        if (errorMessageText == null)
+        {
+            errorMessageText = errorPanel.GetComponentInChildren<TMP_Text>();
+            if (errorMessageText == null)
+            {
+                Debug.LogWarning("TMP_Text component not found inside ErrorPanel!");
+                return;
+            }
+        }
+
+        errorPanel.SetActive(true);
+        errorMessageText.text = message;
+    }
+
 }
