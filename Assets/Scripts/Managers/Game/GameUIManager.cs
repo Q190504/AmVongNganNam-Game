@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("End Panel")]
     [SerializeField] private GameObject endPanel;
+    [SerializeField] private GameObject endPanel2;
     [SerializeField] private TMP_Text endScoreText;
     [SerializeField] private TMP_Text endComboText;
     [SerializeField] private TMP_Text completionStateText;
@@ -23,6 +24,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text totalMissText;
     [SerializeField] private TMP_Text rankText;
 
+    [SerializeField] private TMP_Text songTokenText;
+    [SerializeField] private TMP_Text instTokenText;
     [SerializeField] private TMP_Text newRecordText;
 
     private void Start()
@@ -67,6 +70,8 @@ public class UIManager : MonoBehaviour
     {
         //TO DO: CHECK IF FULL COMBO -> SET FULL COMBO TEXT TO ACTIVE
         endPanel.SetActive(true);
+        endPanel2.SetActive(true);
+        
     }
 
     public void ShowNewRecord()
@@ -81,6 +86,16 @@ public class UIManager : MonoBehaviour
     public void SetHighestCombo(int newCombo)
     {
         endComboText.text = newCombo.ToString();
+    }
+
+    public void SetInstToken(int instToken)
+    {
+        instTokenText.text = "+" + instToken.ToString();
+    }
+
+    public void SetSongToken(int songToken)
+    {
+        songTokenText.text = "+" + songToken.ToString();
     }
 
     public void SetPerfectCount(int perfectCount)
@@ -111,6 +126,7 @@ public class UIManager : MonoBehaviour
     public void HideEndPanel()
     {
         endPanel.SetActive(false);
+        endPanel2.SetActive(false);
         newRecordText.gameObject.SetActive(false);
     }
 }

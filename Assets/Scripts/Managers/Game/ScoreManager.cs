@@ -21,6 +21,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private IntPublisherSO goodEventPublisher;
     [SerializeField] private IntPublisherSO badEventPublisher;
     [SerializeField] private IntPublisherSO missEventPublisher;
+    [SerializeField] private IntPublisherSO songTokenEventPublisher;
+    [SerializeField] private IntPublisherSO instTokenEventPublisher;
     [SerializeField] private StringPublisherSO rankEventPublisher;
     [SerializeField] private StringPublisherSO competionStateEventPublisher;
     [SerializeField] private VoidPublisherSO toggleNewRecordEventPublisher;
@@ -130,9 +132,11 @@ public class ScoreManager : MonoBehaviour
 
         if (!isCompleted)
         {
+            songTokenEventPublisher.RaiseEvent(0);
+            instTokenEventPublisher.RaiseEvent(0);
             rankEventPublisher.RaiseEvent(rank.ToString());
             finalComboEventPublisher.RaiseEvent(longestCombo);
-            competionStateEventPublisher.RaiseEvent(completionState.ToString());
+            competionStateEventPublisher.RaiseEvent(ConfigSO.StateToDisplayString(completionState));
             return;
         }
 
@@ -242,7 +246,9 @@ public class ScoreManager : MonoBehaviour
 
         finalComboEventPublisher.RaiseEvent(longestCombo);
         rankEventPublisher.RaiseEvent(rank.ToString());
-        competionStateEventPublisher.RaiseEvent(completionState.ToString());
+        competionStateEventPublisher.RaiseEvent(ConfigSO.StateToDisplayString(completionState));
+        songTokenEventPublisher.RaiseEvent(songToken);
+        instTokenEventPublisher.RaiseEvent(instrumentToken);
     }
 
 
