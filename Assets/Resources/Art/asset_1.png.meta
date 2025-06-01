@@ -872,8 +872,8 @@ TextureImporter:
         y: 344
         width: 99
         height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.7470666, y: 0.2656989}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -894,8 +894,8 @@ TextureImporter:
         y: 343
         width: 99
         height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25656715, y: 0.25909954}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1502,6 +1502,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: asset_1_57
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1187
+        width: 651
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1efdceac0e869d44a0bf71f005192db
+      internalID: -854197295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1569,6 +1591,7 @@ TextureImporter:
       asset_1_54: -409539182
       asset_1_55: 1881584114
       asset_1_56: 1172485294
+      asset_1_57: -854197295
       asset_1_6: 3016633624009025619
       asset_1_7: 6564542071926744925
       asset_1_8: -2662257456290667158
