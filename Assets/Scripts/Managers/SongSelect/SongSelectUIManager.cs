@@ -75,6 +75,7 @@ public class SongSelectUIManager : MonoBehaviour
     private void GenerateSongButtons()
     {
         bool hasNewSong = false;
+        
         for (int i = 0; i < songList.Count; i++)
         {
             int index = i; // capture index for lambda
@@ -84,22 +85,21 @@ public class SongSelectUIManager : MonoBehaviour
             songButton.GetComponentInChildren<TextMeshProUGUI>().text = song.songName;
             songButtonList.Add(songButton);
 
-            hasNewSong = SetupSongButton(song, songButton);
-
-            if (hasNewSong)
+            if (SetupSongButton(song, songButton))
             {
-                SaveSongList();
+                hasNewSong = true;
             }
+
+            
+        }
+
+        if (hasNewSong)
+        {
+            SongManager.Instance.SaveSongList();
         }
     }
 
-    private void SaveSongList()
-    {
-        GameDataSO gameData = SongManager.Instance.GetGameData();
-        string[] new_unlocked_song = gameData.unlocked_songs.ToArray();
-        int song_token = gameData.song_token;
-        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null, song_token, -1);
-    }
+    
     private bool SetupSongButton(SongInfoSO song, GameObject songButton)
     {
         var data = SongManager.Instance.GetGameData();
@@ -163,7 +163,7 @@ public class SongSelectUIManager : MonoBehaviour
             {
                 data.song_token -= price;
                 data.unlocked_songs.Add(song.id);
-                SaveSongList();
+                SongManager.Instance.SaveSongList();
                 SetupSongButton(song, songButton); // Recheck unlock status
                 unlockEvent.RaiseEvent();
             }

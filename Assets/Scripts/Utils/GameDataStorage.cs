@@ -116,7 +116,15 @@ public class GameDataStorage : MonoBehaviour
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-
+        string token = PlayerPrefs.GetString("token", "");
+        if (!string.IsNullOrEmpty(token))
+        {
+            request.SetRequestHeader("Authorization", "Bearer " + token);
+        }
+        else
+        {
+            Debug.Log("No token found in PlayerPrefs.");
+        }
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
@@ -137,7 +145,15 @@ public class GameDataStorage : MonoBehaviour
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         request.SetRequestHeader("Content-Type", "application/json");
-
+        string token = PlayerPrefs.GetString("token", "");
+        if (!string.IsNullOrEmpty(token))
+        {
+            request.SetRequestHeader("Authorization", "Bearer " + token);
+        }
+        else
+        {
+            Debug.Log("No token found in PlayerPrefs.");
+        }
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)

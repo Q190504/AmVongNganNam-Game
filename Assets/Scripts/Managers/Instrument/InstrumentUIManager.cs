@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class InstrumentUIManager : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class InstrumentUIManager : MonoBehaviour
     private void GenerateInstrumentButtons()
     {
         bool hasNewInst = false;
+        
+
         for (int i = 0; i < instrumentList.Count; i++)
         {
             int index = i; // capture index for lambda
@@ -44,23 +47,18 @@ public class InstrumentUIManager : MonoBehaviour
             instButton.GetComponentInChildren<TextMeshProUGUI>().text = inst.instrumentName;
             instrumentButtonList.Add(instButton);
 
-            hasNewInst = SetupInstrumentButton(inst, instButton);
-
-            if (hasNewInst)
+            if (SetupInstrumentButton(inst, instButton))
             {
-                SaveInstrumentList();
-            }
+                hasNewInst = true;
+            }            
+        }
+
+        if (hasNewInst)
+        {
+            InstrumentManager.Instance.SaveInstrumentList();
         }
     }
-
-    private void SaveInstrumentList()
-    {
-        GameDataSO gameData = SongManager.Instance.GetGameData();
-        string[] new_unlocked_instrument = gameData.unlocked_instruments.ToArray();
-        int inst_token = gameData.instrument_token;
-
-        GameDataStorage.Instance.SaveGameStatus(null, new_unlocked_instrument, null, -1, inst_token);
-    }
+    
     private bool SetupInstrumentButton(InstrumentDataSO inst, GameObject instButton)
     {
         var data = SongManager.Instance.GetGameData();
@@ -107,14 +105,14 @@ public class InstrumentUIManager : MonoBehaviour
         if (data.instrument_token >= price)
         {
             unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"Bạn đang sử dụng {SongManager.Instance.GetConfig().instPrice} Đồng Đàn để mở khóa nhạc cụ {inst.name}.";
+            $"Bạn đang sử dụng {SongManager.Instance.GetConfig().instPrice} Đồng Đàn để mở khóa nhạc cụ {inst.instrumentName}.";
             canUnlockButtonPanel.SetActive(true);
             unableUnlockButtonPanel.SetActive(false);
         }
         else
         {
             unlockConfirmPanel.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"Bạn cần thêm {SongManager.Instance.GetConfig().instPrice - data.instrument_token} Đồng Đàn để mở khóa nhạc cụ {inst.name}.";
+            $"Bạn cần thêm {SongManager.Instance.GetConfig().instPrice - data.instrument_token} Đồng Đàn để mở khóa nhạc cụ {inst.instrumentName}.";
             canUnlockButtonPanel.SetActive(false);
             unableUnlockButtonPanel.SetActive(true);
         }
@@ -129,7 +127,7 @@ public class InstrumentUIManager : MonoBehaviour
             {
                 data.instrument_token -= price;
                 data.unlocked_instruments.Add(inst.instrumentId);
-                SaveInstrumentList();
+                InstrumentManager.Instance.SaveInstrumentList();
                 SetupInstrumentButton(inst, instButton); // Recheck unlock status
                 unlockEvent.RaiseEvent();
             }

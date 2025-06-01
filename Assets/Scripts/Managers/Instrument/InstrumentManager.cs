@@ -74,5 +74,13 @@ public class InstrumentManager : MonoBehaviour
         return null;
     }
 
+    public void SaveInstrumentList()
+    {
+        GameDataSO gameData = SongManager.Instance.GetGameData();
+        string[] new_unlocked_instrument = gameData.unlocked_instruments.ToArray();
+        int inst_token = gameData.instrument_token;
+
+        GameDataStorage.Instance.SaveGameStatus(null, new_unlocked_instrument, null, -1, inst_token);
+    }
     public float GetFadeDuration() { return fadeDuration; }
 }

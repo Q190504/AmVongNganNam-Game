@@ -46,6 +46,15 @@ public class AuthManager : MonoBehaviour
     {
         UnityWebRequest request = UnityWebRequest.Get(apiUrl + "/me");
         request.SetRequestHeader("Content-Type", "application/json");
+        string token = PlayerPrefs.GetString("token", "");
+        if (!string.IsNullOrEmpty(token))
+        {
+            request.SetRequestHeader("Authorization", "Bearer " + token);
+        }
+        else
+        {
+            Debug.Log("No token found in PlayerPrefs.");
+        }
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
 
@@ -98,6 +107,7 @@ public class AuthManager : MonoBehaviour
             } else
             {
                 Debug.Log("Login Successful! Token: " + response.token);
+                PlayerPrefs.SetString("token", response.token);
                 StartCoroutine(StartLoginCheck());
             }
         }
@@ -135,7 +145,8 @@ public class AuthManager : MonoBehaviour
             Debug.Log("Logout Successful!");
             StartCoroutine(StartLoginCheck());
             PlayerPrefs.DeleteKey("name");
-            PlayerPrefs.DeleteKey("UIT");
+            PlayerPrefs.DeleteKey("UID");
+            PlayerPrefs.DeleteKey("token");
         }
         else
         {

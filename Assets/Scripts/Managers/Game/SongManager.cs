@@ -25,7 +25,13 @@ public class SongManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    public void SaveSongList()
+    {
+        GameDataSO gameData = SongManager.Instance.GetGameData();
+        string[] new_unlocked_song = gameData.unlocked_songs.ToArray();
+        int song_token = gameData.song_token;
+        GameDataStorage.Instance.SaveGameStatus(new_unlocked_song, null, null, song_token, -1);
+    }
     public void SetCurrentSelectedGame(SongInfoSO songInfo, GameManager.GameMode mode)
     {
         this.currentSelectedGame = (songInfo, mode);
