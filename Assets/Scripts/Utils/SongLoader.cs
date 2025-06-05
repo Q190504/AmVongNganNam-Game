@@ -67,6 +67,7 @@ public class SongLoader : MonoBehaviour
 
         StartCoroutine(DownloadAudio(songInfo.songClipUrl, (AudioClip clip) => {
             songInfo.songClip = clip;
+            songInfo.songLength = clip.length;
             audioDone = true;
         }));
 
@@ -154,7 +155,10 @@ public class SongLoader : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 AudioClip clip = DownloadHandlerAudioClip.GetContent(request);
-                Debug.Log(clip);
+                yield return new WaitUntil(() => clip.loadState == AudioDataLoadState.Loaded);
+
+                Debug.Log("Clip: " + clip);
+                Debug.Log("Length: " + clip.length + " seconds");
                 callback(clip);
                 Debug.Log("Downloaded Audio!");
             }

@@ -13,6 +13,7 @@ public class SongInfoSO : ScriptableObject
     public string songClipUrl;
     public string easyMidiUrl;
     public string hardMidiUrl;
+    public float songLength;
     public AudioClip songClip;
     public TextAsset easyMidi;
     public TextAsset hardMidi;
