@@ -54,7 +54,24 @@ public class GameTitleUIManager : MonoBehaviour
 
     public void EnterGame()
     {
-        StartCoroutine(InitializeGame());
+        if (PlayerPrefs.HasKey("token"))
+        {
+            string token = PlayerPrefs.GetString("token");
+            if (!string.IsNullOrEmpty(token))
+            {
+                StartCoroutine(InitializeGame());
+            }
+            else
+            {
+                Debug.LogWarning("Token is empty.");
+                UpdateUI(false);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Token not found in PlayerPrefs.");
+            UpdateUI(false);
+        }
     }
 
     private IEnumerator InitializeGame()
