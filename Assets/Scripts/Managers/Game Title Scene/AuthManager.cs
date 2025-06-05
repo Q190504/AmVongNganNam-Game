@@ -52,6 +52,8 @@ public class AuthManager : MonoBehaviour
         else
         {
             Debug.Log("No token found in PlayerPrefs.");
+            isAuthenticated = false;
+            yield break;
         }
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
