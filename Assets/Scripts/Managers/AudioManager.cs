@@ -6,8 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager _instance;
 
-    
-
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource gameSongSource;
@@ -19,10 +17,10 @@ public class AudioManager : MonoBehaviour
     [Header("SFXs")]
     [SerializeField] AudioClip buttonClickSFX;
     [SerializeField] AudioClip switchSceneButtonClickSFX;
-    [SerializeField] AudioClip successSoundSFX; 
-    [SerializeField] AudioClip failureSoundSFX; 
-    [SerializeField] AudioClip unlockInstrumentSFX; 
-    [SerializeField] AudioClip hitSoundSFX; 
+    [SerializeField] AudioClip successSoundSFX;
+    [SerializeField] AudioClip failureSoundSFX;
+    [SerializeField] AudioClip unlockInstrumentSFX;
+    [SerializeField] AudioClip hitSoundSFX;
 
     [Header("Audio Settings Panel")]
     private AudioSettingsPanel audioSettingsPanel;
@@ -47,7 +45,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Found more than one Audio Manager in the scene. Destroying the newest one");
+            Debug.Log("[AudioManager] Found more than one instance. Destroying duplicate.");
             Destroy(this.gameObject);
         }
     }
@@ -57,17 +55,20 @@ public class AudioManager : MonoBehaviour
         PlayBGM(bgm);
     }
 
-    private void Update()
-    {
-                 
-    }
-
     public void PlayBGM()
     {
         PlayBGM(bgm);
     }
+
     public void PlayBGM(AudioClip clip)
     {
+        if (clip == null)
+        {
+            Debug.LogWarning("[AudioManager] BGM clip is null!");
+            return;
+        }
+
+        Debug.Log($"[AudioManager] Playing BGM");
         bgmSource.clip = clip;
         bgmSource.loop = true;
         bgmSource.Play();
@@ -75,44 +76,58 @@ public class AudioManager : MonoBehaviour
 
     public void StopBGM()
     {
+        Debug.Log("[AudioManager] Stopping BGM.");
         bgmSource.Stop();
     }
 
     public void PlayGameSong(AudioClip clip)
     {
-        if (clip == null) return;
+        if (clip == null)
+        {
+            Debug.LogWarning("[AudioManager] PlayGameSong called with NULL clip.");
+            return;
+        }
+
+        Debug.Log($"[AudioManager] Playing game song, loop={gameSongSource.loop}, time={gameSongSource.time}");
+        gameSongSource.loop = false;
         gameSongSource.clip = clip;
-        gameSongSource.Play();
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        if (clip == null) return;
-        sfxSource.PlayOneShot(clip);
-    }
-
-    public void PauseGameSong()
-    {
-        gameSongSource.Pause();
-    }
-
-    public void ContinueGameSong()
-    {
         gameSongSource.Play();
     }
 
     public void StopGameSong()
     {
+        Debug.Log($"[AudioManager] Stopping game song at time: {gameSongSource.time}");
         gameSongSource.Stop();
     }
-    public bool IsBGMPlaying()
+
+    public void PauseGameSong()
     {
-        return bgmSource != null && bgmSource.isPlaying;
+        Debug.Log($"[AudioManager] Pausing game song at time: {gameSongSource.time}");
+        gameSongSource.Pause();
+    }
+
+    public void ContinueGameSong()
+    {
+        Debug.Log($"[AudioManager] Continuing game song at time: {gameSongSource.time}");
+        gameSongSource.Play();
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("[AudioManager] RestartGame() called.");
+        StopGameSong();
+        PlayGameSong(gameSongSource.clip);
     }
 
     public float GetGameSongSecond()
     {
-        return gameSongSource.time;
+        float currentTime = gameSongSource.time;
+        return currentTime;
+    }
+
+    public float GetGameSongLength()
+    {
+        return gameSongSource.clip != null ? gameSongSource.clip.length : 0f;
     }
 
     public AudioSource GetGameSongSource()
@@ -122,17 +137,30 @@ public class AudioManager : MonoBehaviour
 
     public void ClearGameSongClip()
     {
+        Debug.Log("[AudioManager] Clearing game song clip.");
         gameSongSource.clip = null;
     }
 
-    public float GetGameSongLength()
+    public bool IsBGMPlaying()
     {
-        return gameSongSource.clip.length;
+        return bgmSource != null && bgmSource.isPlaying;
     }
 
     public void SetBGMVolume(float volume) => bgmSource.volume = volume;
     public void SetGameSongVolume(float volume) => gameSongSource.volume = volume;
     public void SetSFXVolume(float volume) => sfxSource.volume = volume;
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            Debug.LogWarning("[AudioManager] Tried to play null SFX.");
+            return;
+        }
+
+        Debug.Log($"[AudioManager] Playing SFX: {clip.name}");
+        sfxSource.PlayOneShot(clip);
+    }
 
     public void PlayClickButtonSFX()
     {
@@ -146,10 +174,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayEndGameSoundSFX(bool result)
     {
-        if(result)
-            PlaySFX(successSoundSFX);
-        else
-            PlaySFX(failureSoundSFX);
+        Debug.Log($"[AudioManager] Playing end game SFX. Result: {(result ? "Success" : "Failure")}");
+        PlaySFX(result ? successSoundSFX : failureSoundSFX);
     }
 
     public void PlayUnlockSoundSFX()
@@ -165,27 +191,31 @@ public class AudioManager : MonoBehaviour
     public void ToggleAudioSettingsPanel(int alpha)
     {
         audioSettingsPanel = FindFirstObjectByType<AudioSettingsPanel>();
-        audioSettingsPanelCanvasGroup = audioSettingsPanel.GetComponent<CanvasGroup>();
+        audioSettingsPanelCanvasGroup = audioSettingsPanel?.GetComponent<CanvasGroup>();
 
-        if (alpha == 0)//closed
+        if (audioSettingsPanelCanvasGroup == null)
         {
-            audioSettingsPanelCanvasGroup.blocksRaycasts = false;
-            audioSettingsPanelCanvasGroup.interactable = false;
+            Debug.LogWarning("[AudioManager] Audio Settings Panel is missing or incomplete.");
+            return;
         }
-        else//opened
-        {
-            audioSettingsPanelCanvasGroup.blocksRaycasts = true;
-            audioSettingsPanelCanvasGroup.interactable = true;
 
+        bool isOpening = alpha != 0;
+        Debug.Log($"[AudioManager] Toggling Audio Settings Panel. Opening: {isOpening}");
+
+        audioSettingsPanelCanvasGroup.blocksRaycasts = isOpening;
+        audioSettingsPanelCanvasGroup.interactable = isOpening;
+        audioSettingsPanelCanvasGroup.alpha = alpha;
+
+        if (isOpening)
+        {
             audioSettingsPanel.SetSFXSlider();
             audioSettingsPanel.SetMusicSlider();
         }
-
-        audioSettingsPanelCanvasGroup.alpha = alpha;
     }
 
     public void ExitGameMode()
     {
+        Debug.Log("[AudioManager] Exiting game mode.");
         StopGameSong();
         PlayBGM(bgm);
     }
@@ -193,14 +223,14 @@ public class AudioManager : MonoBehaviour
     public void ToggleGameSong()
     {
         if (PauseManager.IsPause)
+        {
+            Debug.Log("[AudioManager] Game is paused. Pausing song.");
             PauseGameSong();
+        }
         else
+        {
+            Debug.Log("[AudioManager] Game resumed. Continuing song.");
             ContinueGameSong();
-    }
-
-    public void RestartGame()
-    {
-        StopGameSong();
-        PlayGameSong(gameSongSource.clip);
+        }
     }
 }
