@@ -140,7 +140,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        
+        GameDataSO gameData = SongManager.Instance.GetGameData();
 
         var (songInfo, gameMode) = SongManager.Instance.GetCurrentSelectedSong();
         ScoreDataSO currentRecord = SongManager.Instance.GetScoreDataBySongID(songInfo.id);
@@ -152,6 +152,7 @@ public class ScoreManager : MonoBehaviour
             currentRecord.easyState = ConfigSO.CompletionState.NOT_COMPLETED;
             currentRecord.hardScore = 0;
             currentRecord.hardState = ConfigSO.CompletionState.NOT_COMPLETED;
+            gameData.highscore.Add(currentRecord);
         }
 
         rank = config.calculateRank(score, songInfo, gameMode);
@@ -216,7 +217,7 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        GameDataSO gameData = SongManager.Instance.GetGameData();
+        
         gameData.song_token += songToken;
         gameData.instrument_token += instrumentToken;
 
