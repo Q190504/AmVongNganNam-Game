@@ -109,6 +109,10 @@ public class GameSceneManager : MonoBehaviour
             }
         }
 
+        PlayerPrefs.DeleteKey("name");
+        PlayerPrefs.DeleteKey("UID");
+        PlayerPrefs.DeleteKey("token");
+
         errorPanel.SetActive(true);
         errorMessageText.text = message;
     }
