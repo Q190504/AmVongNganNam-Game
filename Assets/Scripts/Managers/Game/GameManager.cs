@@ -45,19 +45,49 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         (SongInfoSO, GameMode) selectedGame = SongManager.Instance.GetCurrentSelectedSong();
+
+        Debug.Log($"Selected song: {selectedGame.Item1.songName}");
+        Debug.Log($"Selected songClip: {(selectedGame.Item1.songClip == null ? "NULL" : selectedGame.Item1.songClip.name)}");
+
         Load(selectedGame.Item1, config, selectedGame.Item2);
+
         CalculateTravelDuration();
-        AudioManager.Instance.PlayGameSong(songInfo.songClip);
-        this.songLength = AudioManager.Instance.GetGameSongLength();
+
+        if (selectedGame.Item1.songClip == null)
+        {
+            Debug.LogError("songClip is NULL! Audio cannot be played.");
+        }
+        else
+        {
+            Debug.Log($"Playing song clip: {selectedGame.Item1.songClip.name}");
+            Debug.Log($"Clip length (before play): {selectedGame.Item1.songClip.length} seconds");
+        }
+
+        AudioManager.Instance.PlayGameSong(selectedGame.Item1.songClip);
+
+        this.songLength = selectedGame.Item1.songLength;
+        Debug.Log($"Song length stored in songInfo: {this.songLength} seconds");
     }
 
+    private float songPosTracker = 0f;
     private void Update()
     {
         if (noteTimings.Count == 0) return;
-        float songPosInSeconds = AudioManager.Instance.GetGameSongSecond();
 
-        if (songPosInSeconds >= songLength)
+        float songPosInSeconds = AudioManager.Instance.GetGameSongSecond();
+        if (songPosTracker <= songPosInSeconds)
+            songPosTracker = songPosInSeconds;
+        else if (songPosInSeconds == 0 && nextNoteIndex >= noteTimings.Count)
+            songPosTracker += Time.deltaTime;
+
+        if (songPosInSeconds >= songLength 
+            || (songPosInSeconds == 0 && songPosTracker >= songLength && nextNoteIndex >= noteTimings.Count))
+        {
+            songPosTracker = 0f;
+            Debug.Log("Ending game");
             endGamePublisher.RaiseEvent(true);
+        }
+
         gameSongUpdatePublisherSO.RaiseEvent(songPosInSeconds);
     }
 
@@ -74,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        songPosTracker = 0f;
         nextNoteIndex = 0;
     }
 }
