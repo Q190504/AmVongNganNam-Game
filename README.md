@@ -1,6 +1,12 @@
 # ÂM VỌNG NGÀN NĂM (Echoes of A Thousand Years)
 Âm Vọng Ngàn Năm (Echoes of a Thousand Years) is a rhythm game that brings Vietnam’s traditional folk music to life in a fresh, exciting way. While many young people today drift toward pop music and global trends, this game turns ancient sounds and instruments like the đàn bầu and sáo trúc into interactive, engaging experiences. By blending cultural heritage with modern gameplay, Âm Vọng Ngàn Năm sparks curiosity and pride, helping a new generation rediscover and protect the soul of Vietnamese music.
-
+## Deploy version
+- Access the deployed web game via: https://washi-niwashi.itch.io/avnn?password=avnn-test
+- Access the deployed Account Center via: https://amvong-avnn.onrender.com
+- **Note that the backend server may take time to start up (up to 1 min) due to free hosting limits.**
+- **Note that the database server may become disabled after an inactive time.**
+- In that case, please contact: 22520759@gm.uit.edu.vn (Ms. Linh)
+  
 ## Functions
 ### RHYTHM MODE “PHIÊU LƯU”
 Dive into fast-paced stages where each level is a Vietnamese folk song turned into a thrilling one-key rhythm game. **Tap the spacebar** to the beat, master the rhythm, and unlock new songs.
